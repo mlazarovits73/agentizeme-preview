@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="agentizeme — indítócsomag (bizalmas)">
+<meta property="og:description" content="Belső munkaanyag.">
+<meta property="og:type" content="website">
+
+<title>agentizeme — indítócsomag (portfólió v2 · validáció · Globility 2.0)</title>
+<style>
+  :root{
+    --bg:#FBFAF7;
+    --surface:#FFFFFF;
+    --surface-2:#F3F0E9;
+    --border:#E2DDD2;
+    --text:#1A1E22;
+    --muted:#5A6268;
+    --accent:#0E6B57;
+    --accent-strong:#0A5040;
+    --accent-soft:#E5F0EB;
+    --warn:#A66B00;
+    --warn-soft:#FBF3E2;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14181B; --surface:#1B2125; --surface-2:#22292E; --border:#333C42;
+      --text:#E8EAEB; --muted:#9AA5AB;
+      --accent:#4CAE94; --accent-strong:#7FCDB8; --accent-soft:#1E3A32;
+      --warn:#E0B15C; --warn-soft:#33290F;
+    }
+  }
+  *{box-sizing:border-box;margin:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;padding:0 0 80px;}
+  a{color:var(--accent-strong);}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+
+  header.doc{border-bottom:1px solid var(--border);padding:48px 0 32px;margin-bottom:40px;background:var(--surface);}
+  .doc .meta{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:12px;}
+  .doc h1{font-size:2rem;font-weight:750;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px;}
+  .doc p.lede{color:var(--muted);max-width:64ch;}
+
+  nav.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:0 0 40px;}
+  nav.toc b{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:8px;}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;font-size:.92rem;}
+  nav.toc li{margin:4px 0;break-inside:avoid;}
+  @media(max-width:640px){nav.toc ol{columns:1;}}
+
+  section{margin:0 0 48px;}
+  h2{font-size:1.35rem;font-weight:700;letter-spacing:-.01em;margin:0 0 6px;padding-top:8px;}
+  h2 .num{color:var(--accent-strong);font-family:var(--mono);font-size:1rem;margin-right:8px;}
+  p.sub{color:var(--muted);margin-bottom:18px;max-width:70ch;}
+  h3{font-size:1.02rem;margin:22px 0 8px;}
+  p{max-width:70ch;}
+  ul{padding-left:22px;max-width:70ch;}
+  li{margin:6px 0;}
+
+  .callout{border-radius:10px;border:1px solid var(--border);background:var(--surface);padding:16px 20px;margin:18px 0;max-width:none;}
+  .callout.acc{background:var(--accent-soft);border-color:var(--accent);}
+  .callout.warnc{background:var(--warn-soft);border-color:var(--warn);}
+  .callout b.h{display:block;margin-bottom:6px;}
+
+  .table-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface);margin:16px 0;}
+  table{border-collapse:collapse;width:100%;font-size:.88rem;}
+  th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{background:var(--surface-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  td.p{font-family:var(--mono);font-size:.82rem;color:var(--accent-strong);white-space:nowrap;}
+  td b{font-weight:650;}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+  @media(max-width:640px){.two{grid-template-columns:1fr;}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;}
+  .card.acc{border-top:3px solid var(--accent);}
+  .card h4{margin:0 0 8px;font-size:1.05rem;}
+  .card .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-strong);display:block;margin-bottom:8px;}
+  .card p, .card li{font-size:.92rem;}
+  .card ul{padding-left:18px;margin-top:8px;}
+
+  .pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent-strong);border:1px solid var(--accent);margin-left:6px;vertical-align:middle;}
+  .pill.w{background:var(--warn-soft);color:var(--warn);border-color:var(--warn);}
+
+  footer.doc{border-top:1px solid var(--border);margin-top:56px;padding-top:20px;font-size:.8rem;color:var(--muted);}
+  footer.doc p{max-width:none;}
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <div class="wrap">
+    <div class="meta">Bizalmas munkaanyag · 2026. július 7. · v2 (brand-szétválasztott)</div>
+    <h1>agentizeme — indítócsomag</h1>
+    <p class="lede">A 2026. szeptember 1-jén induló AI consulting &amp; implementation cég alapozása: szolgáltatás-portfólió, a mögötte álló piaci validáció (36 cég), a Globility 2.0 mobility-AI vonal leválasztása, és a nyitott döntések. Munkanév: <b>agentizeme</b> · „B" alternatíva: <b>Consolvit</b>.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <b>Tartalom</b>
+  <ol>
+    <li><a href="#osszefoglalo">Vezetői összefoglaló</a></li>
+    <li><a href="#brand">Brand-architektúra: két vonal, két brand</a></li>
+    <li><a href="#portfolio">Az agentizeme portfóliója</a></li>
+    <li><a href="#elvek">Árazási és értékesítési elvek</a></li>
+    <li><a href="#globility">A Globility 2.0 vonal</a></li>
+    <li><a href="#validacio">Piaci validáció — 36 cég</a></li>
+    <li><a href="#gtm">Go-to-market</a></li>
+    <li><a href="#dontesek">Nyitott döntések</a></li>
+  </ol>
+</nav>
+
+<section id="osszefoglalo">
+  <h2><span class="num">1</span>Vezetői összefoglaló</h2>
+  <p>Egy 2026. júliusi piackutatás („AI Business Survey") 36 sikeres AI-céget vizsgált három kategóriában (szolgáltatás, termék, tanácsadás). Mindet weboldal-szinten újravalidáltuk, és a mintáikból desztilláltuk az induló portfóliót. A legfontosabb következtetések:</p>
+  <ul>
+    <li><b>A domain-szakértelem a moat, az AI a szorzó.</b> A legjobban működő minta a „practitioner-turned-consultant": aki előbb magán csinálta végig, azt veszik meg.</li>
+    <li><b>Service-first:</b> a szolgáltatás finanszíroz és validál; a termék belőle nő ki (5–10 fizető ügyfél után).</li>
+    <li><b>Fix, publikált ár a bizalmi fegyver</b> — a vizsgált 12 tanácsadó cégből csak 4 publikál árat, a CEE-piacon szinte senki.</li>
+    <li><b>Az EU AI Act beépített keresletet ad</b> (AI-jártasság már él, átláthatóság 2026. aug. 2., high-risk 2027–28) — őszinte, anti-fear-selling pozícióval.</li>
+  </ul>
+  <div class="callout acc">
+    <b class="h">A két termékvonal szét van választva (2026-07-07-i döntés).</b>
+    Az <b>agentizeme</b> tisztán AI consulting &amp; implementation. A global mobility AI a <b>Globility</b> brand alatt marad („Globility 2.0"). Az agentizeme a Globility-rendszerre kizárólag mint első működő, saját use case-re hivatkozik — élő, demózható referencia, nem saját SKU.
+  </div>
+</section>
+
+<section id="brand">
+  <h2><span class="num">2</span>Brand-architektúra: két vonal, két brand</h2>
+  <div class="two">
+    <div class="card acc">
+      <span class="k">agentizeme / Consolvit</span>
+      <h4>AI consulting &amp; implementation</h4>
+      <p>Produktizált AI-adopció, compliance és implementáció KKV-knak és csapatoknak (10–200 fő, HU/CEE). Hero-üzenet: <i>„AI-tanácsadás, ami működő rendszert ad át. Nem diasort."</i></p>
+      <ul>
+        <li>Célcsoport: KKV-vezetők; HR/legal/ops/pénzügy csapatok</li>
+        <li>Hitelesség: „az első ügyfelünk mi magunk voltunk" — a Globility-rendszer élő demója</li>
+        <li>Honlap v1 kész (kétnyelvű, brand-cserélhető)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="k">Globility · „Globility 2.0"</span>
+      <h4>Mobility &amp; Workforce Compliance AI</h4>
+      <p>A meglévő Globility praxis AI-tuningolt termékvonala — a Globility brand, ügyfélkör és bizalom alatt értékesítve.</p>
+      <ul>
+        <li>Célcsoport: nemzetközi cégek HU/CEE-ben, külföldi munkavállalókkal</li>
+        <li>Azonnali upsell-bázis: a futó mobility-ügyek mellé</li>
+        <li>Külön projekt: Globility-oldali AI-szekció / aloldal</li>
+      </ul>
+    </div>
+  </div>
+  <p class="sub">A két brand közös delivery-infrastruktúrán osztozhat (agentic pipeline-ok, self-hosted EU-infra), de kifelé külön arca van. A kapcsolat kifelé kommunikált formája: közös alapító, közös praxis; az agentizeme demóján a Globility-rendszer fut.</p>
+</section>
+
+<section id="portfolio">
+  <h2><span class="num">3</span>Az agentizeme portfóliója</h2>
+  <p class="sub">Minden ár nettó. Az EUR-értékek ~400 HUF/EUR mellett tájékoztatók; a sávok a validált nemzetközi ár-evidenciából CEE-re horgonyozva. Belépő: ingyenes AI Readiness Scan (5 perc, online) + 48 órás automatizációs audit.</p>
+
+  <h3>Adopció &amp; compliance — a cash-flow motor</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>#</th><th>Szolgáltatás</th><th>Forma</th><th>Ár (nettó)</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td><b>AI Act Readiness Sprint</b> — 5 munkanap, 8 kész dokumentum (kész csomag: OPP-001)</td><td>fix díj · 3 csomag</td><td class="p">250 / 450 / 750 E Ft</td></tr>
+        <tr><td>02</td><td><b>EU AI Act Literacy Programme</b> — Art. 4 szerinti képzés + tanúsítvány, éves frissítés</td><td>fix díj / szervezet</td><td class="p">800 E – 2,4 M Ft</td></tr>
+        <tr><td>03</td><td><b>AI workflow-automatizáció</b> — n8n/agentic, self-hosted EU-infra; Starter / Business / Enterprise</td><td>fix díj · 3 tier</td><td class="p">600 E / 1,2 M / 2,4 M+ Ft</td></tr>
+        <tr><td>04</td><td><b>Funkció-specifikus AI-workshop</b> (HR · legal · ops · pénzügy)</td><td>napidíj</td><td class="p">400 E – 1,2 M Ft</td></tr>
+        <tr><td>05</td><td><b>Fractional AI Lead (CAIO)</b> — 1–2 nap/hét, min. 6 hó, 90 napos ív</td><td>havidíj · publikált árkártya</td><td class="p">1 – 2,8 M Ft/hó</td></tr>
+        <tr><td>06</td><td><b>Advisory retainer</b> — sprint/CAIO utáni utókövetés</td><td>havidíj</td><td class="p">400 E – 1 M Ft/hó</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Implementáció — ahol a rendszert át is adjuk</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>#</th><th>Szolgáltatás</th><th>Forma</th><th>Ár (nettó)</th></tr></thead>
+      <tbody>
+        <tr><td>07</td><td><b>AI Pilot</b> — 1 folyamat agentic automatizálása 2–6 hét alatt, előre rögzített KPI-k ellen</td><td>fix díj · KPI-hoz kötve</td><td class="p">3,2 – 10 M Ft</td></tr>
+        <tr><td>08</td><td><b>Ready-to-own AI-alkalmazás</b> — a forráskód az ügyfélé, betanított csapattal; nincs vendor lock-in</td><td>fix díj + opcionális support</td><td class="p">6 – 16 M Ft</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="elvek">
+  <h2><span class="num">4</span>Árazási és értékesítési elvek</h2>
+  <p class="sub">Nem ízlésből — mindegyik a validált cégek működő gyakorlatából jön.</p>
+  <ul>
+    <li><b>Fix díj, publikált ár, soha nem óradíj</b> outcome-munkára. <i>(FairWinds, Agent-Led Growth, BOVO, Alice Labs)</i></li>
+    <li><b>A sprint díja beszámít a folytatásba.</b> <i>(Alice Labs Discovery-mechanika)</i></li>
+    <li><b>Engagement-létra:</b> ingyenes scan/audit → fix-áras sprint → retainer / fractional lead. <i>(LeftClick, ALG 180 napos ív)</i></li>
+    <li><b>Garancia-stack:</b> revíziós körök + elégedettségi garancia + fizetés a validált átadás után. <i>(BOVO — az új brand újdonság-hátrányát ellensúlyozza)</i></li>
+    <li><b>Ár-horgonyzás az alternatíva ellen:</b> főállású AI-vezető (~évi 40+ M Ft) vs. fractional; big-consultancy díjak vs. boutique. <i>(Juicebox, tl;dv, Synthesia)</i></li>
+    <li><b>„Kinek NEM való" szekció</b> minden ajánlatban — hitelesség. <i>(FairWinds)</i></li>
+    <li><b>Anti-fear-selling az AI Act-nél:</b> „a legtöbb rendszered valószínűleg minimal-risk". <i>(aims.consulting)</i></li>
+    <li><b>Trust-jelek elöl:</b> GDPR, EU-adatszuverenitás, „nem general-purpose AI — szakértő által épített". <i>(Chatbase, Harvey, Visalaw)</i></li>
+  </ul>
+</section>
+
+<section id="globility">
+  <h2><span class="num">5</span>A Globility 2.0 vonal (Globility brand alatt)</h2>
+  <p class="sub">Az agentizeme-től leválasztva; a Globility értékesíti a saját ügyfélkörének. Az árak a validált evidencia-sávok — véglegesítésük külön döntés.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>#</th><th>Szolgáltatás</th><th>Forma</th><th>Ár (nettó)</th></tr></thead>
+      <tbody>
+        <tr><td>G1</td><td><b>Mobility Document Intake automatizáció</b> — „bármilyen formátum → standardizált, hibaellenőrzött ügyadat", ember-a-hurokban</td><td>pilot: 1 folyamat, KPI-val</td><td class="p">3,2 – 10 M Ft</td></tr>
+        <tr><td>G2</td><td><b>„Peace of Mind" compliance-monitoring</b> — engedély-lejárat, bejelentések, A1; a meglévő rendszerek fölé</td><td>havidíj</td><td class="p">200 – 800 E Ft/hó</td></tr>
+        <tr><td>G3</td><td><b>AI-augmentált work-permit / compliance audit</b> — jogszerűség, engedély-portfólió, kiküldetési kitettség</td><td>fix díj · 2 hét</td><td class="p">800 E – 2 M Ft</td></tr>
+        <tr><td>G4</td><td><b>Mobility Drafting Assistant / Permit Dashboard</b> — HU/EU case-mátrix (összevont engedély, Kék Kártya, ICT, kiküldetés, A1) <span class="pill w">Fázis 2</span></td><td>SaaS seat</td><td class="p">€150–300/hó/seat</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <b class="h">Miért erős ez a vonal:</b>
+    az EU AI Act a migrációs AI-t Annex III szerint high-risknek sorolja → beépített compliance-kereslet; a US-minták (Visalaw.Ai, DraftyAI — 3 fős csapat, $250/hó) a US-piacot fedik, az EU/CEE nyitott; a Globility ügyfélköre azonnali upsell-bázis. Leggyorsabb validáció: G2 monitoring-pilot 1–2 meglévő ügyfélen (30 napon belüli első bevétel a cél).
+  </div>
+</section>
+
+<section id="validacio">
+  <h2><span class="num">6</span>Piaci validáció — 36 cég, 2026-07-07</h2>
+  <p class="sub">Mind a 36 weboldal élő lekéréssel ellenőrizve. Három érdemi pivot a kutatás megjelenése óta: AIContentfy → generalista growth agency; Surfer → „Positive Surfer" AI-visibility platform; Typeframes → beolvadt a revid.ai-ba <i>(tanulság: a vékony AI-wrapper ~2 év alatt eltűnik — a moat a domain-workflow)</i>.</p>
+
+  <h3>A számunkra legértékesebb minták</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Cég</th><th>Miért fontos nekünk</th></tr></thead>
+      <tbody>
+        <tr><td><b>LeftClick AI</b></td><td>A legközelebbi strukturális analóg: ingyenes audit → fix-áras projekt publikált sávval ($5K-tól, óradíj nélkül) → retainer; workshop külön sor.</td></tr>
+        <tr><td><b>Hartz AI / FairWinds / Agent-Led Growth</b></td><td>A fractional CAIO árlétra evidenciája: £2–6K/hó (UK KKV) · $10–25K/hó (US) · sprint $15–25K. A FairWinds-oldal a legjobb teljes sablon (átlátható árkártya, „kinek nem" szekció, ROI-matekos case study).</td></tr>
+        <tr><td><b>Alice Labs</b></td><td>EU-boutique minta: fix ár, „EU AI Act native", Discovery-díj beszámít az implementációba (€10–20K → €25–75K pilot).</td></tr>
+        <tr><td><b>BOVO Digital</b></td><td>Bizonyíték, hogy a sub-€3K produktizált n8n-csomag eladható; 48h ingyenes audit funnel; garancia-stack; EU-adatszuverenitás pitch.</td></tr>
+        <tr><td><b>ThoughtFox</b></td><td>Nevesített „EU AI Act Literacy Programme" SKU (Art. 4); „ready-to-own, tiéd a forráskód" framing; ingyenes 5 perces readiness scan.</td></tr>
+        <tr><td><b>aims.consulting</b></td><td>Közvetlen AI Act versenytárs-minta — nem produktizál és nem áraz: ez a rés, amit a mi fix-áras sprintünk kihasznál. Átvéve az őszinte anti-fear-selling hang.</td></tr>
+        <tr><td><b>Visalaw.Ai / DraftyAI</b></td><td>A kanonikus „immigrációs szakértő produktizál AI-t" bizonyíték; DraftyAI: 3 fős csapat, $250/hó — a G4 SaaS közvetlen mintája.</td></tr>
+        <tr><td><b>EliseAI / Harvey / Paraform</b></td><td>Vertikális életciklus-modulok nevesítése; „a rutint leveszi, a szakértő dönt" pitch; „expert + AI agent együtt" pozicionálás.</td></tr>
+        <tr><td><b>SaneBox / PRODA / Clay</b></td><td>Termék-minták: „ráépül, nem migrál" réteg; „bármilyen formátum" intake-ígéret; adat-aggregáció + agent + workflow architektúra (és Clay = a saját GTM-motorunk).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Ár-evidencia (mihez horgonyoztunk)</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Termékforma</th><th>US boutique</th><th>UK KKV</th><th>EU boutique</th><th>CEE/BP sáv (miénk)</th></tr></thead>
+      <tbody>
+        <tr><td>Readiness / strategy sprint</td><td>$15–25K</td><td>—</td><td>€10–20K fix</td><td class="p">€6–15K, beszámít</td></tr>
+        <tr><td>Fractional CAIO</td><td>$10–25K/hó</td><td>£2–6K/hó</td><td>—</td><td class="p">€2,5–7K/hó</td></tr>
+        <tr><td>Advisory retainer (utó)</td><td>$3–5K/hó</td><td>—</td><td>—</td><td class="p">€1–2,5K/hó</td></tr>
+        <tr><td>Automatizációs csomag</td><td>—</td><td>—</td><td>€1–3K fix</td><td class="p">€1,5–6K, 3 tier</td></tr>
+        <tr><td>AI pilot (1 folyamat)</td><td>—</td><td>—</td><td>€25–75K</td><td class="p">€8–25K fix</td></tr>
+        <tr><td>Niche legal-AI SaaS seat</td><td>$250/hó</td><td>—</td><td>—</td><td class="p">€150–300/hó</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub">A teljes, cégenkénti validációs riport a munkatérben: <span style="font-family:var(--mono);font-size:.85em;">docs/opportunities/agentizeme-launch/01-validation-report.md</span></p>
+</section>
+
+<section id="gtm">
+  <h2><span class="num">7</span>Go-to-market (szeptember 1-ig, majd az első 90 nap)</h2>
+  <ul>
+    <li><b>Belépő ék:</b> az AI Act Readiness Sprint (kész csomag + meglévő 20-lead outreach-lista) és a Globility-referencia élő demója.</li>
+    <li><b>Lista-építés Clay-jel:</b> 10–200 fős AI-használó KKV-k + HU-leányvállalatok, greenfield-befektetők.</li>
+    <li><b>LinkedIn thought leadership</b> heti 2–3 poszt (AI-adopció, AI Act, agentic case-ek) — „distribute before you build".</li>
+    <li><b>Podcast/interjú mint ABM</b> (Content Allies minta): döntéshozókkal a célcégeknél.</li>
+    <li><b>Delivery-stack:</b> tl;dv (hívások) · Gamma (ajánlatok) · HeyGen v. Synthesia (többnyelvű videó) · ElevenLabs Agents (voice) · Cursor (build) · Clay (GTM).</li>
+  </ul>
+  <div class="callout warnc">
+    <b class="h">Amit tudatosan nem csinálunk:</b>
+    vékony wrapper és commodity-tér (aggregátor, generalista chatbot) · platform-indulás (a termék a szolgáltatásból nő ki) · magas-kockázatú telepítés (biometria, munkavállalói pontozás, hatósági döntés-automatizálás) jogi review nélkül.
+  </div>
+</section>
+
+<section id="dontesek">
+  <h2><span class="num">8</span>Nyitott döntések</h2>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Döntés</th><th>Állapot</th><th>Megjegyzés</th></tr></thead>
+      <tbody>
+        <tr><td><b>Brand: agentizeme vs Consolvit</b></td><td><span class="pill w">nyitott</span></td><td>Külön projekt. A honlap brand-cserélhető: egy kapcsolóval mindkét verzió megnézhető.</td></tr>
+        <tr><td>Domain + e-mail</td><td><span class="pill w">nyitott</span></td><td>Most placeholder (hello@agentizeme.eu); branddöntés után azonnal.</td></tr>
+        <tr><td>Ársávok véglegesítése</td><td><span class="pill w">jóváhagyásra vár</span></td><td>Minden sáv evidencia-horgonyzott, de az árazás üzleti döntés.</td></tr>
+        <tr><td>Naptár-link a CTA mögé</td><td><span class="pill w">nyitott</span></td><td>Élesítés előtt kell.</td></tr>
+        <tr><td>Globility 2.0 arculat + aloldal</td><td><span class="pill w">külön projekt</span></td><td>A honlap referencia-szekciói szinte készen átemelhetők.</td></tr>
+        <tr><td>G2 monitoring-pilot 1–2 Globility-ügyfélen</td><td><span class="pill w">javasolt első lépés</span></td><td>Hydra-szabály: 30 napon belül első euró, különben nem építünk.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="doc">
+  <div class="wrap" style="padding:0;">
+    <p><b>Források és munkatér:</b> docs/opportunities/agentizeme-launch/ — 00-survey-company-extraction.md · 01-validation-report.md · 02-service-portfolio.md · 03-globility-ai-line.md · site/index.html (honlap v1). Az AI Act Readiness Sprint kész csomagja: docs/opportunities/ai-act-readiness-sprint/.</p>
+    <p style="margin-top:8px;">Készült: 2026. július 7. · A jogi/szabályozási hivatkozások 2026. júliusi pillanatképek; nem jogi tanácsadás. Bizalmas üzleti munkaanyag.</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

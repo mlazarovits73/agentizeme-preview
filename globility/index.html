@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Globility 2.0 — Global mobility, AI-tuned">
+<meta property="og:description" content="The same mobility experts. Now with an agentic engine.">
+<meta property="og:type" content="website">
+
+<title>Globility 2.0 — Global mobility, now with an agentic engine</title>
+<meta name="description" content="The same mobility experts international companies have trusted for a decade — now with an agentic AI engine: faster casework, monitored deadlines, audited compliance risk.">
+<style>
+  :root{
+    --navy:#0B172A;
+    --navy-2:#131F35;
+    --navy-3:#212B3C;
+    --navy-line:#26344D;
+    --blue:#0099FF;
+    --blue-deep:#0077CC;
+    --sky:#86D6F6;
+    --sky-soft:#EAF6FD;
+    --sky-line:#C9E8F8;
+    --page:#FFFFFF;
+    --page-2:#F4F7FA;
+    --line:#DDE5EC;
+    --ink:#131C2B;
+    --ink-soft:#5A6472;
+    --on-navy:#F2F6FA;
+    --muted-on-navy:#93A1B5;
+    --sans:"Avenir Next","Segoe UI",Futura,-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--page);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:var(--blue-deep);}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+
+  /* header */
+  header.top{position:sticky;top:0;z-index:50;background:rgba(11,23,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--navy-line);}
+  header.top .bar{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+  .wordmark{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--on-navy);font-weight:700;letter-spacing:.01em;font-size:1.05rem;}
+  .wordmark .g2{font-family:var(--mono);font-size:.68rem;font-weight:600;color:var(--navy);background:var(--sky);border-radius:6px;padding:2px 8px;letter-spacing:.06em;}
+  nav.main{display:flex;gap:24px;align-items:center;min-width:0;}
+  nav.main a{font-size:.88rem;text-decoration:none;color:var(--muted-on-navy);}
+  nav.main a:hover{color:var(--on-navy);}
+  nav.main a.btn{color:#fff;}
+  nav.main a.btn:hover{color:#fff;}
+  .lang-switch{display:flex;border:1px solid var(--navy-line);border-radius:8px;overflow:hidden;}
+  .lang-switch button{border:0;background:transparent;padding:5px 12px;font-size:.8rem;font-weight:600;color:var(--muted-on-navy);cursor:pointer;font-family:var(--sans);}
+  .lang-switch button.on{background:var(--blue);color:#fff;}
+  .btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:13px 26px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid var(--blue-deep);}
+  .btn:hover{background:var(--blue-deep);}
+  .btn.ghost{background:transparent;color:var(--on-navy);border:1px solid var(--muted-on-navy);}
+  .btn.ghost:hover{border-color:var(--on-navy);}
+  .btn.ghost.onlight{color:var(--ink);border-color:var(--ink);}
+  .btn.small{padding:9px 18px;font-size:.85rem;}
+
+  /* hero — dark navy, full-bleed */
+  .hero{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--on-navy);padding:88px 0 0;}
+  .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:20px;display:block;}
+  .hero h1{font-weight:700;letter-spacing:-.015em;font-size:clamp(2.2rem,4.4vw,3.5rem);line-height:1.14;margin-bottom:22px;max-width:19em;}
+  .hero h1 .hl{color:var(--sky);}
+  .hero p.lead{font-size:1.12rem;color:var(--muted-on-navy);max-width:38em;margin-bottom:34px;}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .statbar{border-top:1px solid var(--navy-line);display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:22px;}
+  .statbar div{padding:22px 24px 26px;border-left:1px solid var(--navy-line);}
+  .statbar div:first-child{border-left:0;padding-left:0;}
+  .statbar b{display:block;font-size:1.5rem;font-weight:700;color:var(--on-navy);}
+  .statbar span{font-size:.82rem;color:var(--muted-on-navy);}
+
+  /* sections */
+  section.block{padding:84px 0;}
+  section.block.tint{background:var(--page-2);}
+  .kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);display:block;margin-bottom:14px;}
+  h2.title{font-weight:700;font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.012em;line-height:1.16;margin-bottom:14px;}
+  p.sub{color:var(--ink-soft);max-width:46em;margin-bottom:44px;font-size:1.02rem;}
+
+  /* feature rows */
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:44px 0;border-top:1px solid var(--line);}
+  .feature:first-of-type{border-top:0;padding-top:0;}
+  .feature.rev .txt{order:2;}
+  .feature.rev .visual{order:1;}
+  .feature h3{font-size:1.45rem;font-weight:700;letter-spacing:-.01em;margin-bottom:12px;}
+  .feature p{color:var(--ink-soft);font-size:.97rem;margin-bottom:12px;}
+  .feature .tag{display:inline-block;font-family:var(--mono);font-size:.75rem;color:var(--blue-deep);background:var(--sky-soft);border:1px solid var(--sky-line);border-radius:6px;padding:3px 10px;margin-bottom:14px;}
+  .feature .pr{font-family:var(--mono);font-size:.85rem;color:var(--ink);}
+  .visual{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;font-size:.83rem;color:var(--ink-soft);box-shadow:0 8px 28px rgba(11,23,42,.06);}
+  .visual .vh{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep);margin-bottom:12px;}
+  .visual ul{list-style:none;padding:0;}
+  .visual li{padding:7px 0;border-top:1px solid var(--page-2);display:flex;justify-content:space-between;gap:14px;}
+  .visual li:first-child{border-top:0;}
+  .visual li b{color:var(--ink);font-weight:600;}
+  .ok{color:#0B7A46;font-family:var(--mono);}
+  .warn{color:#A66B00;font-family:var(--mono);}
+
+  /* roadmap banner */
+  .roadmap{display:flex;justify-content:space-between;align-items:center;gap:20px;background:var(--navy);color:var(--on-navy);border-radius:14px;padding:26px 30px;margin-top:44px;flex-wrap:wrap;}
+  .roadmap b{font-size:1.06rem;}
+  .roadmap p{font-size:.88rem;color:var(--muted-on-navy);max-width:52em;}
+  .roadmap .pill{font-family:var(--mono);font-size:.7rem;background:var(--sky);color:var(--navy);border-radius:999px;padding:3px 10px;margin-left:8px;vertical-align:middle;}
+
+  /* AI Act strip */
+  .aiact{background:var(--navy);color:var(--on-navy);padding:70px 0;}
+  .aiact .cols{display:grid;grid-template-columns:6fr 6fr;gap:56px;align-items:center;}
+  .aiact h2{font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;line-height:1.2;margin-bottom:16px;}
+  .aiact p{color:var(--muted-on-navy);font-size:.97rem;margin-bottom:12px;}
+  .aiact p b{color:var(--on-navy);}
+  .aiact .panel{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:12px;padding:24px 26px;}
+  .aiact .panel .vh{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+  .aiact .panel ul{list-style:none;padding:0;font-size:.9rem;}
+  .aiact .panel li{padding:10px 0;border-top:1px solid var(--navy-line);color:var(--muted-on-navy);}
+  .aiact .panel li:first-child{border-top:0;}
+  .aiact .panel li b{color:var(--on-navy);}
+
+  /* pricing */
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff;}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;}
+  th,td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--page-2);vertical-align:top;}
+  th{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:var(--page-2);}
+  tr:last-child td{border-bottom:none;}
+  td.pnum{font-family:var(--mono);font-size:.84rem;color:var(--blue-deep);white-space:nowrap;}
+  .pricing-note{font-size:.83rem;color:var(--ink-soft);margin-top:16px;}
+
+  /* classic services */
+  .classic{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px;}
+  .classic div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:.92rem;font-weight:600;}
+  .classic div span{display:block;font-weight:400;font-size:.82rem;color:var(--ink-soft);margin-top:4px;}
+
+  /* fit */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .fit .col{border-radius:12px;padding:28px;border:1px solid var(--line);background:#fff;}
+  .fit .col.no{background:var(--page-2);}
+  .fit h3{font-size:1.12rem;font-weight:700;margin-bottom:14px;}
+  .fit ul{padding-left:20px;}
+  .fit li{margin:8px 0;font-size:.93rem;color:var(--ink-soft);}
+
+  /* final */
+  .final{padding:96px 0;text-align:center;background:linear-gradient(180deg,var(--page) 0%,var(--sky-soft) 100%);}
+  .final h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:700;letter-spacing:-.012em;margin-bottom:16px;}
+  .final p{color:var(--ink-soft);max-width:38em;margin:0 auto 34px;}
+
+  footer{background:var(--navy);color:var(--muted-on-navy);padding:36px 0 60px;font-size:.82rem;}
+  footer a{color:var(--sky);}
+  footer .cols{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+
+  .lang{display:none;}
+  .lang.on{display:block;}
+
+  @media(max-width:900px){
+    .aiact .cols,.feature{grid-template-columns:1fr;gap:36px;}
+    .feature.rev .txt{order:1;}
+    .feature.rev .visual{order:2;}
+    .statbar{grid-template-columns:1fr 1fr;}
+    .statbar div{border-left:0;padding-left:0;}
+    .classic{grid-template-columns:1fr;}
+    .fit{grid-template-columns:1fr;}
+    .hero{padding:56px 0 0;}
+    section.block{padding:60px 0;}
+  }
+  @media(max-width:700px){
+    header.top .bar{gap:10px;}
+    nav.main{gap:12px;}
+    nav.main a.btn{display:none;}
+    th:nth-child(2),td:nth-child(2){display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="wordmark" href="#">Globility <span class="g2">2.0 · AI</span></a>
+    <nav class="main">
+      <a class="navlink" href="#engine" data-t="AI engine|AI-motor">AI engine</a>
+      <a class="navlink" href="#pricing" data-t="pricing|árak">pricing</a>
+      <a class="navlink" href="#classic" data-t="services|szolgáltatások">services</a>
+      <div class="lang-switch">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-hu" onclick="setLang('hu')">HU</button>
+      </div>
+      <a class="btn small" href="#contact" data-t="Book a demo|Demó foglalása">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================================ EN -->
+<div class="lang" id="lang-en">
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Globility Consulting · Budapest · trusted since 2016</span>
+    <h1>The same mobility experts.<br>Now with an <span class="hl">agentic engine</span>.</h1>
+    <p class="lead">For a decade, international companies have trusted Globility with work permits, postings and workforce compliance in Hungary. That practice now runs on an agentic AI engine — faster casework, monitored deadlines, audited risk. Same experts, same accountability. More speed, fewer surprises.</p>
+    <div class="ctas">
+      <a class="btn" href="#contact">Book a live demo</a>
+      <a class="btn ghost" href="#engine">See what the engine does</a>
+    </div>
+    <div class="statbar">
+      <div><b>10+ years</b><span>immigration &amp; labor-law casework for international clients</span></div>
+      <div><b>Every output</b><span>reviewed by a human expert before it reaches you or an authority</span></div>
+      <div><b>100% EU</b><span>self-hosted infrastructure, GDPR-native, DPAs with every vendor</span></div>
+      <div><b>Zero migration</b><span>the engine works on top of your existing HR systems</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="engine">
+  <div class="wrap">
+    <span class="kicker">What the engine does</span>
+    <h2 class="title">Three AI services, built on real casework</h2>
+    <p class="sub">Not a chatbot bolted onto a law firm. These are production workflows trained on ten years of permits, postings and audits — with a human expert validating every output.</p>
+
+    <div class="feature">
+      <div class="txt">
+        <span class="tag">G1 · document intake</span>
+        <h3>Any format in. Clean case data out.</h3>
+        <p>Passports, employment contracts, permit PDFs, HR spreadsheets — however they arrive. The agentic pipeline extracts, standardizes and error-checks everything into structured case data, flagging what's missing before it delays a filing.</p>
+        <p class="pr">Pilot (1 process, measured KPIs): €8,000–25,000 fixed</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Intake → structured case data</div>
+        <ul>
+          <li><span>passport_scan_TR.pdf</span><b class="ok">✓ extracted</b></li>
+          <li><span>employment_contract_v3_final.docx</span><b class="ok">✓ extracted</b></li>
+          <li><span>HR_list_2026_Q3.xlsx</span><b class="ok">✓ 41 rows</b></li>
+          <li><span>permit expiry — Yilmaz A.</span><b class="warn">⚠ 34 days</b></li>
+          <li><span>missing document</span><b class="warn">⚠ 2 cases</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature rev">
+      <div class="txt">
+        <span class="tag">G2 · monitoring retainer</span>
+        <h3>"Peace of Mind" compliance monitoring</h3>
+        <p>Permit expiries, posting notifications, A1 certificates, accommodation registrations — continuously watched by agents on top of your existing systems, with renewal drafts prepared before deadlines get close. You get an alert; the authority never gets a reason.</p>
+        <p class="pr">€500–2,000/month · cancel anytime · pays off from ~5–10 active permits</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Next 60 days — live view</div>
+        <ul>
+          <li><span>3 permit renewals due</span><b class="ok">drafts ready</b></li>
+          <li><span>1 posting notification (DE)</span><b class="warn">⚠ 12 days</b></li>
+          <li><span>2 A1 certificates expiring</span><b class="ok">scheduled</b></li>
+          <li><span>accommodation registration</span><b class="ok">in order</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="txt">
+        <span class="tag">G3 · audit</span>
+        <h3>AI-augmented work-permit &amp; compliance audit</h3>
+        <p>A fixed-fee review of your foreign-workforce exposure: employment legality, permit portfolio, posting risk. Where one mistake means a fine, a lost worker or an authority procedure, a systematic AI-accelerated review pays for itself with the first finding.</p>
+        <p class="pr">€2,000–5,000 fixed · 2 weeks · management summary + 30-day remediation plan</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Audit deliverables</div>
+        <ul>
+          <li><span>permit portfolio matrix</span><b class="ok">✓</b></li>
+          <li><span>per-case risk heatmap</span><b class="ok">✓</b></li>
+          <li><span>30-day remediation plan</span><b class="ok">✓</b></li>
+          <li><span>management summary</span><b class="ok">✓</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <div>
+        <b>On the 2027 roadmap <span class="pill">waitlist open</span></b>
+        <p><b style="color:var(--on-navy);">Mobility Drafting Assistant</b> — HU/EU case coverage: single permit, EU Blue Card, ICT, posting documents, A1, employer letters — and a <b style="color:var(--on-navy);">Permit Dashboard</b> for HR teams. Built from the same engine that runs our own casework.</p>
+      </div>
+      <a class="btn small" href="#contact">Join the waitlist</a>
+    </div>
+  </div>
+</section>
+
+<section class="aiact">
+  <div class="wrap cols">
+    <div>
+      <span class="eyebrow">Why this is hard to copy</span>
+      <h2>Migration AI is classified high-risk under the EU AI Act. We built for that from day one.</h2>
+      <p>Annex III of the AI Act puts AI used in migration and border contexts in the <b>high-risk category</b>. Most AI vendors discover this after they've built. We started from the regulation: <b>human-in-the-loop on every decision, full audit trail, no automated authority-facing decisions</b> — the AI accelerates the work, the licensed expert signs it.</p>
+      <p>AI-governance and AI Act readiness services themselves are delivered by our partner brand <a href="https://agentizeme.eu" style="color:var(--sky);">agentizeme</a> — same founder, dedicated AI-consulting practice.</p>
+    </div>
+    <div class="panel">
+      <div class="vh">How we operate under the AI Act</div>
+      <ul>
+        <li><b>Human validation</b> — every output reviewed by a mobility expert before use</li>
+        <li><b>No automated decisions</b> — AI drafts and flags; humans decide and file</li>
+        <li><b>Audit trail</b> — every extraction and draft is logged and traceable</li>
+        <li><b>EU data sovereignty</b> — self-hosted EU infrastructure, DPAs with every vendor, client data never in public tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing">
+  <div class="wrap">
+    <span class="kicker">Pricing</span>
+    <h2 class="title">Fixed fees, published. Rare in this industry — on purpose.</h2>
+    <p class="sub">All prices net. Fixed scope, fixed fee; no hourly billing for outcome work. Exact quote within 48 hours of the intro call.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Service</th><th>Format</th><th>Price (net)</th></tr></thead>
+        <tbody>
+          <tr><td>Work-permit &amp; compliance audit (G3)</td><td>fixed, 2 weeks</td><td class="pnum">€2,000–5,000</td></tr>
+          <tr><td>"Peace of Mind" compliance monitoring (G2)</td><td>monthly retainer</td><td class="pnum">€500–2,000/mo</td></tr>
+          <tr><td>Document-intake automation pilot (G1)</td><td>fixed, KPI-bound</td><td class="pnum">€8,000–25,000</td></tr>
+          <tr><td>Mobility Drafting Assistant / Permit Dashboard</td><td>SaaS, per seat</td><td class="pnum">€150–300/mo · 2027</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-note">Reference point: a Big-4 mobility retainer costs a multiple of this — and doesn't watch your deadlines around the clock. The natural entry: start with the audit; monitoring is the standing follow-up.</p>
+  </div>
+</section>
+
+<section class="block tint" id="classic">
+  <div class="wrap">
+    <span class="kicker">Everything you already know Globility for</span>
+    <h2 class="title">The full mobility practice — now faster behind the scenes</h2>
+    <p class="sub">The AI engine doesn't replace the services below. It runs underneath them: the same casework you've trusted for years, delivered with shorter turnarounds and fewer misses.</p>
+    <div class="classic">
+      <div>International recruitment &amp; placement<span>The workforce you need, where and when you need it</span></div>
+      <div>Employer of Record (EOR)<span>Compliant employment without a local entity</span></div>
+      <div>Work visas &amp; permits<span>End-to-end permit casework, HU/EU</span></div>
+      <div>Onboarding &amp; integration<span>From arrival to productive day one</span></div>
+      <div>HR &amp; compliance support<span>Ongoing employment-law compliance</span></div>
+      <div>Expense-related taxation<span>Personal expense taxation for mobile staff</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="fit">
+  <div class="wrap">
+    <span class="kicker">Fit</span>
+    <h2 class="title">Who this is for</h2>
+    <div class="fit">
+      <div class="col">
+        <h3>A good fit</h3>
+        <ul>
+          <li>International companies in Hungary / CEE employing foreign workers</li>
+          <li>HR and mobility teams managing 5+ active permits, postings or A1 cases</li>
+          <li>Companies expanding into Hungary that need workforce compliance from day one</li>
+          <li>Firms burned before by a missed deadline, an incomplete filing or an audit finding</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>Good to know</h3>
+        <ul>
+          <li>AI accelerates; licensed experts decide and file — this is not self-service legal automation</li>
+          <li>High-risk or unusual constellations get flagged and handled with legal review</li>
+          <li>Need AI consulting for your own processes beyond mobility? That's our partner brand, <a href="https://agentizeme.eu">agentizeme</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2>See the engine on your own cases.</h2>
+    <p>A 30-minute call: we walk through your foreign-workforce setup, show the live system, and tell you what it would catch. No commitment.</p>
+    <a class="btn" href="mailto:info@globilityconsulting.com">Book a live demo</a>
+    <p style="margin-top:18px;font-size:.85rem;">or write: <a href="mailto:info@globilityconsulting.com">info@globilityconsulting.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <span style="color:var(--on-navy);font-weight:700;">Globility <span style="font-family:var(--mono);font-size:.68rem;background:var(--sky);color:var(--navy);border-radius:6px;padding:2px 8px;">2.0 · AI</span></span>
+      <p style="margin-top:10px;max-width:44em;">Globility Consulting Kft. · Budapest · <a href="https://globilityconsulting.com">globilityconsulting.com</a>. Not legal advice; casework is performed by qualified professionals. AI consulting &amp; implementation: <a href="https://agentizeme.eu">agentizeme</a>.</p>
+      <p style="margin-top:10px;">© 2026 · Your trusted partner in workforce solutions</p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /lang-en -->
+
+<!-- ================================================================ HU -->
+<div class="lang" id="lang-hu">
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Globility Consulting · Budapest · 2016 óta</span>
+    <h1>Ugyanazok a mobility-szakértők.<br>Most <span class="hl">agentic motorral</span>.</h1>
+    <p class="lead">Egy évtizede intézzük nemzetközi cégek munkavállalási engedélyeit, kiküldetéseit és workforce compliance-ügyeit Magyarországon. Ez a praxis mostantól agentic AI-motoron fut — gyorsabb ügyvitel, folyamatosan figyelt határidők, auditált kockázat. Ugyanaz a szakértelem, ugyanaz a felelősség. Több sebesség, kevesebb meglepetés.</p>
+    <div class="ctas">
+      <a class="btn" href="#contact-hu">Élő demó foglalása</a>
+      <a class="btn ghost" href="#engine-hu">Mit csinál a motor?</a>
+    </div>
+    <div class="statbar">
+      <div><b>10+ év</b><span>immigrációs és munkajogi ügyvitel nemzetközi ügyfeleknek</span></div>
+      <div><b>Minden kimenet</b><span>szakértő által ellenőrizve, mielőtt hozzád vagy hatósághoz ér</span></div>
+      <div><b>100% EU</b><span>self-hosted infra, GDPR-natív, DPA minden vendorral</span></div>
+      <div><b>Nulla migráció</b><span>a motor a meglévő HR-rendszereid fölött dolgozik</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="engine-hu">
+  <div class="wrap">
+    <span class="kicker">Mit csinál a motor</span>
+    <h2 class="title">Három AI-szolgáltatás, valódi ügyvitelre építve</h2>
+    <p class="sub">Nem egy ügyvédi irodára szerelt chatbot. Tíz év engedélyügyein, kiküldetésein és auditjain edzett, éles üzemű workflow-k — minden kimenetet szakértő validál.</p>
+
+    <div class="feature">
+      <div class="txt">
+        <span class="tag">G1 · document intake</span>
+        <h3>Bármilyen formátum be. Tiszta ügyadat ki.</h3>
+        <p>Útlevelek, munkaszerződések, engedély-PDF-ek, HR-táblázatok — ahogy érkeznek. Az agentic pipeline mindent kinyer, standardizál és hibaellenőriz strukturált ügyadattá, és még azelőtt jelzi a hiányokat, hogy azok beadványt késleltetnének.</p>
+        <p class="pr">Pilot (1 folyamat, mért KPI-kkal): 3,2 – 10 M Ft fix</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Intake → strukturált ügyadat</div>
+        <ul>
+          <li><span>passport_scan_TR.pdf</span><b class="ok">✓ kinyerve</b></li>
+          <li><span>munkaszerzodes_v3_final.docx</span><b class="ok">✓ kinyerve</b></li>
+          <li><span>HR_lista_2026_Q3.xlsx</span><b class="ok">✓ 41 sor</b></li>
+          <li><span>engedély lejárat — Yilmaz A.</span><b class="warn">⚠ 34 nap</b></li>
+          <li><span>hiányzó dokumentum</span><b class="warn">⚠ 2 ügynél</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature rev">
+      <div class="txt">
+        <span class="tag">G2 · monitoring retainer</span>
+        <h3>„Peace of Mind" compliance-monitoring</h3>
+        <p>Engedély-lejáratok, kiküldetés-bejelentések, A1-igazolások, szálláshely-bejelentések — agentek figyelik folyamatosan, a meglévő rendszereid fölött, és a hosszabbítási draftok már azelőtt elkészülnek, hogy a határidő közel érne. Te riasztást kapsz; a hatóság soha nem kap okot.</p>
+        <p class="pr">200 – 800 E Ft/hó · bármikor felmondható · ~5–10 aktív engedélytől megtérül</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Következő 60 nap — élő nézet</div>
+        <ul>
+          <li><span>3 engedély-hosszabbítás esedékes</span><b class="ok">draft kész</b></li>
+          <li><span>1 kiküldetés-bejelentés (DE)</span><b class="warn">⚠ 12 nap</b></li>
+          <li><span>2 A1-igazolás lejár</span><b class="ok">ütemezve</b></li>
+          <li><span>szálláshely-bejelentés</span><b class="ok">rendben</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="txt">
+        <span class="tag">G3 · audit</span>
+        <h3>AI-augmentált work-permit &amp; compliance audit</h3>
+        <p>Fix díjas átvilágítás a külföldi-munkavállalói kitettségről: foglalkoztatási jogszerűség, engedély-portfólió, kiküldetési kockázat. Ahol egy hiba bírságot, munkavállaló-vesztést vagy hatósági eljárást jelent, ott a szisztematikus, AI-gyorsított átnézés az első találattal megtérül.</p>
+        <p class="pr">800 E – 2 M Ft fix · 2 hét · vezetői összefoglaló + 30 napos remediation-terv</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Audit-kimenetek</div>
+        <ul>
+          <li><span>engedély-portfólió mátrix</span><b class="ok">✓</b></li>
+          <li><span>kockázati hőtérkép ügyenként</span><b class="ok">✓</b></li>
+          <li><span>30 napos remediation-terv</span><b class="ok">✓</b></li>
+          <li><span>vezetői összefoglaló</span><b class="ok">✓</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <div>
+        <b>A 2027-es roadmapen <span class="pill">váróbázis nyitva</span></b>
+        <p><b style="color:var(--on-navy);">Mobility Drafting Assistant</b> — HU/EU case-lefedettség: összevont engedély, EU Kék Kártya, ICT, kiküldetési dokumentumok, A1, munkáltatói igazolások — és <b style="color:var(--on-navy);">Permit Dashboard</b> HR-csapatoknak. Ugyanabból a motorból, ami a saját ügyvitelünket viszi.</p>
+      </div>
+      <a class="btn small" href="#contact-hu">Feliratkozom</a>
+    </div>
+  </div>
+</section>
+
+<section class="aiact">
+  <div class="wrap cols">
+    <div>
+      <span class="eyebrow">Miért nehéz ezt lemásolni</span>
+      <h2>A migrációs AI az EU AI Act szerint magas kockázatú. Mi eleve erre építettünk.</h2>
+      <p>Az AI Act Annex III a migrációs kontextusban használt AI-t a <b>magas kockázatú kategóriába</b> sorolja. A legtöbb AI-szállító ezt utólag veszi észre. Mi a szabályozásból indultunk: <b>ember-a-hurokban minden döntésnél, teljes audit trail, semmilyen automatizált hatósági döntés</b> — az AI gyorsítja a munkát, a szakértő írja alá.</p>
+      <p>Az AI-governance és AI Act readiness szolgáltatásokat partner-brandünk, az <a href="https://agentizeme.eu" style="color:var(--sky);">agentizeme</a> nyújtja — közös alapító, dedikált AI-tanácsadó praxis.</p>
+    </div>
+    <div class="panel">
+      <div class="vh">Így működünk az AI Act alatt</div>
+      <ul>
+        <li><b>Humán validálás</b> — minden kimenetet mobility-szakértő néz át felhasználás előtt</li>
+        <li><b>Nincs automatizált döntés</b> — az AI draftol és jelez; ember dönt és ad be</li>
+        <li><b>Audit trail</b> — minden kinyerés és draft naplózott, visszakövethető</li>
+        <li><b>EU-adatszuverenitás</b> — self-hosted EU-infra, DPA minden vendorral, ügyféladat soha nem megy publikus toolba</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing-hu">
+  <div class="wrap">
+    <span class="kicker">Árak</span>
+    <h2 class="title">Fix díjak, publikálva. Ebben az iparágban ritka — szándékosan.</h2>
+    <p class="sub">Minden ár nettó, + áfa. Fix terjedelem, fix díj; outcome-munkára óradíj nincs. Pontos ajánlat a bemutatkozó hívás után 48 órán belül.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Szolgáltatás</th><th>Forma</th><th>Ár (nettó)</th></tr></thead>
+        <tbody>
+          <tr><td>Work-permit &amp; compliance audit (G3)</td><td>fix, 2 hét</td><td class="pnum">800 E – 2 M Ft</td></tr>
+          <tr><td>„Peace of Mind" compliance-monitoring (G2)</td><td>havi retainer</td><td class="pnum">200 – 800 E Ft/hó</td></tr>
+          <tr><td>Document-intake automatizációs pilot (G1)</td><td>fix, KPI-hoz kötve</td><td class="pnum">3,2 – 10 M Ft</td></tr>
+          <tr><td>Mobility Drafting Assistant / Permit Dashboard</td><td>SaaS, seatenként</td><td class="pnum">€150–300/hó · 2027</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-note">Viszonyítás: egy Big-4 mobility-retainer ennek többszöröse — és nem figyeli éjjel-nappal a határidőidet. A természetes belépő az audit; a monitoring az állandó folytatás.</p>
+  </div>
+</section>
+
+<section class="block tint" id="classic-hu">
+  <div class="wrap">
+    <span class="kicker">Amit eddig is a Globility-től kaptál</span>
+    <h2 class="title">A teljes mobility-praxis — a színfalak mögött gyorsabban</h2>
+    <p class="sub">Az AI-motor nem váltja ki az alábbi szolgáltatásokat: alattuk fut. Ugyanaz az ügyvitel, amiben évek óta megbízol — rövidebb átfutással, kevesebb hibalehetőséggel.</p>
+    <div class="classic">
+      <div>Nemzetközi toborzás &amp; kihelyezés<span>A munkaerő, amire szükséged van — ott és akkor</span></div>
+      <div>Employer of Record (EOR)<span>Jogszerű foglalkoztatás helyi cég nélkül</span></div>
+      <div>Munkavállalási vízum &amp; engedélyek<span>End-to-end engedélyügyintézés, HU/EU</span></div>
+      <div>Onboarding &amp; integráció<span>Az érkezéstől a produktív első napig</span></div>
+      <div>HR &amp; compliance támogatás<span>Folyamatos munkajogi megfelelés</span></div>
+      <div>Költség-kapcsolt adózás<span>Személyi költségek adózása mobil munkavállalóknál</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="fit-hu">
+  <div class="wrap">
+    <span class="kicker">Illeszkedés</span>
+    <h2 class="title">Kinek szól</h2>
+    <div class="fit">
+      <div class="col">
+        <h3>Nekik való</h3>
+        <ul>
+          <li>Nemzetközi cégek Magyarországon / CEE-ben, külföldi munkavállalókkal</li>
+          <li>HR- és mobility-csapatok 5+ aktív engedéllyel, kiküldetéssel vagy A1-üggyel</li>
+          <li>Magyarországra terjeszkedő cégek, akiknek az első naptól kell a workforce compliance</li>
+          <li>Akiket már megégetett egy lecsúszott határidő, hiányos beadvány vagy ellenőrzési megállapítás</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>Jó tudni</h3>
+        <ul>
+          <li>Az AI gyorsít; engedéllyel rendelkező szakértő dönt és ad be — ez nem önkiszolgáló jogi automatizáció</li>
+          <li>A magas kockázatú vagy szokatlan konstellációkat jelöljük és jogi review-val kezeljük</li>
+          <li>A mobilityn túl a saját folyamataidra keresel AI-t? Az a partner-brandünk: <a href="https://agentizeme.eu">agentizeme</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact-hu">
+  <div class="wrap">
+    <h2>Nézd meg a motort a saját ügyeiden.</h2>
+    <p>30 perces hívás: átnézzük a külföldi-munkavállalói felállásodat, megmutatjuk az élő rendszert, és megmondjuk, mit fogna meg nálad. Nincs elköteleződés.</p>
+    <a class="btn" href="mailto:info@globilityconsulting.com">Élő demó foglalása</a>
+    <p style="margin-top:18px;font-size:.85rem;">vagy írj: <a href="mailto:info@globilityconsulting.com">info@globilityconsulting.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <span style="color:var(--on-navy);font-weight:700;">Globility <span style="font-family:var(--mono);font-size:.68rem;background:var(--sky);color:var(--navy);border-radius:6px;padding:2px 8px;">2.0 · AI</span></span>
+      <p style="margin-top:10px;max-width:44em;">Globility Consulting Kft. · Budapest · <a href="https://globilityconsulting.com">globilityconsulting.com</a>. Nem jogi tanácsadás; az ügyvitelt szakképzett szakemberek végzik. AI-tanácsadás &amp; implementáció: <a href="https://agentizeme.eu">agentizeme</a>.</p>
+      <p style="margin-top:10px;">© 2026 · Your trusted partner in workforce solutions</p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /lang-hu -->
+
+<script>
+  function setLang(l){
+    document.getElementById('lang-en').classList.toggle('on', l==='en');
+    document.getElementById('lang-hu').classList.toggle('on', l==='hu');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    document.getElementById('btn-hu').classList.toggle('on', l==='hu');
+    document.documentElement.lang = l;
+    try{localStorage.setItem('g2lang', l);}catch(e){}
+    var sfx = l==='hu' ? '-hu' : '';
+    var map = ['#engine','#pricing','#classic'];
+    var links = document.querySelectorAll('nav.main a.navlink');
+    links.forEach(function(a,i){
+      a.href = map[i] + sfx;
+      var t = a.getAttribute('data-t').split('|');
+      a.textContent = l==='en' ? t[0] : t[1];
+    });
+    var cta = document.querySelector('nav.main a.btn');
+    cta.href = '#contact' + (l==='hu' ? '-hu' : '');
+    var ct = cta.getAttribute('data-t').split('|');
+    cta.textContent = l==='en' ? ct[0] : ct[1];
+  }
+  (function(){
+    var l = 'en';
+    try{ l = localStorage.getItem('g2lang') || 'en'; }catch(e){}
+    var q = new URLSearchParams(location.search);
+    if(q.get('lang')) l = q.get('lang');
+    setLang(l);
+  })();
+</script>
+</body>
+</html>

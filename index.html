@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="agentizeme — AI consulting & implementation">
+<meta property="og:description" content="Produktizált AI-adopció, compliance és implementáció — fix, publikált díjakkal. Budapest.">
+<meta property="og:type" content="website">
+
+<title>agentizeme — AI-tanácsadás és -implementáció, működő rendszerekkel</title>
+<meta name="description" content="AI-tanácsadás és -implementáció KKV-knak és csapatoknak: produktizált csomagok, fix, publikált díjak, agentic delivery, EU-adatszuverén működés. Budapest.">
+<style>
+  :root{
+    --paper:#FAF8F3;
+    --paper-2:#F2EEE6;
+    --ink:#171B1E;
+    --ink-soft:#4A5258;
+    --line:#DED8CC;
+    --accent:#0E6B57;
+    --accent-ink:#0A5040;
+    --accent-soft:#E3EFEA;
+    --dark:#122019;
+    --dark-2:#1A2C23;
+    --dark-line:#2C4437;
+    --paper-on-dark:#EDE8DD;
+    --muted-on-dark:#9FB0A5;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-ink);}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+  .serif{font-family:var(--serif);}
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,243,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header.top .bar{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+  .wordmark{font-family:var(--mono);font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-decoration:none;}
+  .wordmark .dot{color:var(--accent);}
+  nav.main{display:flex;gap:26px;align-items:center;min-width:0;}
+  nav.main a{font-size:.88rem;text-decoration:none;color:var(--ink-soft);}
+  nav.main a:hover{color:var(--ink);}
+  nav.main a.btn{color:#fff;}
+  nav.main a.btn:hover{color:#fff;}
+  .lang-switch{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .lang-switch button{
+    border:0;background:transparent;padding:5px 12px;font-size:.8rem;font-weight:600;
+    color:var(--ink-soft);cursor:pointer;font-family:var(--sans);
+  }
+  .lang-switch button.on{background:var(--ink);color:var(--paper);}
+  .btn{
+    display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;
+    border:1px solid var(--accent-ink);
+  }
+  .btn:hover{background:var(--accent-ink);}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);}
+  .btn.small{padding:9px 18px;font-size:.85rem;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:84px 0 72px;}
+  .hero .grid{display:grid;grid-template-columns:7fr 5fr;gap:64px;align-items:start;}
+  .eyebrow{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent-ink);margin-bottom:20px;display:block;
+  }
+  .hero h1{
+    font-family:var(--serif);font-weight:600;letter-spacing:-.015em;
+    font-size:clamp(2.4rem,4.6vw,3.7rem);line-height:1.12;margin-bottom:24px;
+  }
+  .hero h1 em{font-style:italic;color:var(--accent-ink);}
+  .hero p.lead{font-size:1.13rem;color:var(--ink-soft);max-width:34em;margin-bottom:34px;}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chips span{
+    font-size:.78rem;font-weight:600;color:var(--accent-ink);
+    background:var(--accent-soft);border:1px solid #CBE0D7;border-radius:999px;padding:5px 13px;
+  }
+  /* ladder panel */
+  .ladder{
+    border:1px solid var(--line);border-radius:16px;background:#fff;
+    padding:26px 26px 18px;box-shadow:0 1px 0 var(--line);
+  }
+  .ladder h3{font-family:var(--serif);font-size:1.05rem;margin-bottom:18px;}
+  .step{display:flex;gap:16px;padding:14px 0;border-top:1px solid var(--paper-2);}
+  .step:first-of-type{border-top:0;}
+  .step .n{
+    font-family:var(--mono);font-size:.8rem;color:var(--accent-ink);
+    background:var(--accent-soft);width:30px;height:30px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px;
+  }
+  .step b{display:block;font-size:.95rem;}
+  .step p{font-size:.85rem;color:var(--ink-soft);}
+  .ladder .note{font-size:.78rem;color:var(--ink-soft);border-top:1px dashed var(--line);margin-top:8px;padding-top:12px;}
+
+  /* ---------- dark strip: why now ---------- */
+  .why{background:var(--dark);color:var(--paper-on-dark);padding:66px 0;}
+  .why .cols{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center;}
+  .why h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.2;margin-bottom:16px;}
+  .why p{color:var(--muted-on-dark);font-size:.98rem;}
+  .why p b{color:var(--paper-on-dark);}
+  .tl{list-style:none;padding:0;}
+  .tl li{
+    display:grid;grid-template-columns:150px 1fr;gap:20px;
+    padding:15px 0;border-top:1px solid var(--dark-line);font-size:.93rem;
+  }
+  .tl li:first-child{border-top:0;}
+  .tl .d{font-family:var(--mono);font-size:.8rem;color:#7FBFA8;padding-top:2px;}
+  .tl .live{color:#E8C468;}
+  .tl li span:last-child{color:var(--muted-on-dark);}
+  .tl li span:last-child b{color:var(--paper-on-dark);font-weight:600;}
+
+  /* ---------- sections ---------- */
+  section.block{padding:84px 0;}
+  section.block.tint{background:var(--paper-2);}
+  .kicker{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent-ink);display:block;margin-bottom:14px;
+  }
+  h2.title{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.5rem);letter-spacing:-.01em;line-height:1.15;margin-bottom:14px;}
+  p.sub{color:var(--ink-soft);max-width:44em;margin-bottom:44px;font-size:1.02rem;}
+
+  /* lane A: editorial numbered index */
+  .index{border-top:1px solid var(--ink);}
+  .row{
+    display:grid;grid-template-columns:70px 1fr 300px 170px;gap:24px;align-items:baseline;
+    padding:22px 0;border-bottom:1px solid var(--line);
+  }
+  .row .no{font-family:var(--mono);font-size:.85rem;color:var(--ink-soft);}
+  .row h3{font-family:var(--serif);font-size:1.22rem;font-weight:600;}
+  .row h3 small{display:block;font-family:var(--sans);font-size:.87rem;font-weight:400;color:var(--ink-soft);margin-top:5px;line-height:1.5;}
+  .row .form{font-size:.85rem;color:var(--ink-soft);}
+  .row .price{font-family:var(--mono);font-size:.87rem;color:var(--accent-ink);text-align:right;white-space:nowrap;}
+  .free-banner{
+    margin:0 0 34px;display:flex;justify-content:space-between;align-items:center;gap:20px;
+    background:var(--accent-soft);border:1px solid #CBE0D7;border-radius:14px;padding:20px 26px;
+  }
+  .free-banner b{font-family:var(--serif);font-size:1.08rem;}
+  .free-banner p{font-size:.88rem;color:var(--ink-soft);}
+
+  /* lane B: alternating feature rows */
+  .feature{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+    padding:44px 0;border-top:1px solid var(--line);
+  }
+  .feature:first-of-type{border-top:0;padding-top:0;}
+  .feature.rev .txt{order:2;}
+  .feature.rev .visual{order:1;}
+  .feature h3{font-family:var(--serif);font-size:1.5rem;margin-bottom:12px;}
+  .feature p{color:var(--ink-soft);font-size:.97rem;margin-bottom:12px;}
+  .feature .tag{
+    display:inline-block;font-family:var(--mono);font-size:.75rem;color:var(--accent-ink);
+    background:var(--accent-soft);border-radius:6px;padding:3px 10px;margin-bottom:14px;
+  }
+  .feature .pr{font-family:var(--mono);font-size:.85rem;color:var(--ink);}
+  .visual{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;
+    font-size:.83rem;color:var(--ink-soft);
+  }
+  .visual .vh{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px;}
+  .visual ul{list-style:none;padding:0;}
+  .visual li{padding:7px 0;border-top:1px solid var(--paper-2);display:flex;justify-content:space-between;gap:14px;}
+  .visual li:first-child{border-top:0;}
+  .visual li b{color:var(--ink);font-weight:600;}
+  .ok{color:var(--accent-ink);font-family:var(--mono);}
+  .warn{color:#A66B00;font-family:var(--mono);}
+
+  /* pricing table */
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff;}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;}
+  th,td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--paper-2);vertical-align:top;}
+  th{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);background:var(--paper-2);}
+  tr:last-child td{border-bottom:none;}
+  td.pnum{font-family:var(--mono);font-size:.84rem;color:var(--accent-ink);white-space:nowrap;}
+  .pricing-note{font-size:.83rem;color:var(--ink-soft);margin-top:16px;}
+
+  /* guarantees */
+  .gset{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  .g{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff;}
+  .g b{font-family:var(--serif);font-size:1.02rem;display:block;margin-bottom:8px;}
+  .g p{font-size:.88rem;color:var(--ink-soft);}
+
+  /* fit / not fit */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .fit .col{border-radius:14px;padding:28px;border:1px solid var(--line);background:#fff;}
+  .fit .col.no{background:var(--paper-2);}
+  .fit h3{font-family:var(--serif);font-size:1.15rem;margin-bottom:14px;}
+  .fit ul{padding-left:20px;}
+  .fit li{margin:8px 0;font-size:.93rem;color:var(--ink-soft);}
+
+  /* founder strip */
+  .founder{background:var(--dark);color:var(--paper-on-dark);padding:80px 0;}
+  .founder .grid{display:grid;grid-template-columns:7fr 5fr;gap:60px;align-items:center;}
+  .founder h2{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.2;margin-bottom:18px;}
+  .founder p{color:var(--muted-on-dark);margin-bottom:14px;font-size:.98rem;}
+  .founder p b{color:var(--paper-on-dark);}
+  .founder .stats{border:1px solid var(--dark-line);border-radius:14px;padding:8px 24px;background:var(--dark-2);}
+  .founder .stats div{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:15px 0;border-top:1px solid var(--dark-line);}
+  .founder .stats div:first-child{border-top:0;}
+  .founder .stats b{font-family:var(--serif);font-size:1.35rem;color:var(--paper-on-dark);}
+  .founder .stats span{font-size:.82rem;color:var(--muted-on-dark);text-align:right;}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--line);padding:4px 0;}
+  details:first-of-type{border-top:1px solid var(--ink);}
+  summary{
+    cursor:pointer;font-family:var(--serif);font-size:1.08rem;font-weight:600;
+    padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:20px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary:after{content:"+";font-family:var(--mono);color:var(--accent-ink);}
+  details[open] summary:after{content:"–";}
+  details p{padding:0 0 20px;color:var(--ink-soft);font-size:.95rem;max-width:46em;}
+
+  /* final CTA */
+  .final{padding:100px 0;text-align:center;}
+  .final h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;letter-spacing:-.01em;}
+  .final p{color:var(--ink-soft);max-width:36em;margin:0 auto 34px;}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;font-size:.82rem;color:var(--ink-soft);}
+  footer .cols{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+  .brandprev{font-family:var(--mono);font-size:.72rem;opacity:.65;}
+  .brandprev button{border:0;background:none;font-family:var(--mono);font-size:.72rem;cursor:pointer;color:var(--accent-ink);text-decoration:underline;padding:0 2px;}
+
+  .lang{display:none;}
+  .lang.on{display:block;}
+
+  @media(max-width:700px){
+    header.top .bar{gap:10px;}
+    nav.main{gap:12px;}
+    nav.main a.btn{display:none;}
+    .wordmark{font-size:.95rem;flex:none;}
+    .tl li{grid-template-columns:1fr;gap:4px;}
+    th:nth-child(2),td:nth-child(2){display:none;}
+  }
+  @media(max-width:900px){
+    .hero .grid,.why .cols,.founder .grid,.feature{grid-template-columns:1fr;gap:36px;}
+    .feature.rev .txt{order:1;}
+    .feature.rev .visual{order:2;}
+    .row{grid-template-columns:44px 1fr;grid-template-rows:auto auto;}
+    .row .form{grid-column:2;}
+    .row .price{grid-column:2;text-align:left;}
+    .gset,.fit{grid-template-columns:1fr;}
+    nav.main a.navlink{display:none;}
+    .free-banner{flex-direction:column;align-items:flex-start;}
+    .hero{padding:56px 0 48px;}
+    section.block{padding:60px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="wordmark" href="#"><span class="brand-name">agentizeme</span><span class="dot">.</span></a>
+    <nav class="main">
+      <a class="navlink" href="#services" data-t="szolgáltatások|services">szolgáltatások</a>
+      <a class="navlink" href="#proof" data-t="referencia|proof">referencia</a>
+      <a class="navlink" href="#pricing" data-t="árak|pricing">árak</a>
+      <div class="lang-switch">
+        <button id="btn-hu" onclick="setLang('hu')">HU</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn small" href="#contact" data-t="Readiness hívás|Readiness call">Readiness hívás</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================================ HU -->
+<div class="lang" id="lang-hu">
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Budapest · AI consulting &amp; implementation · 2026 szeptemberétől</span>
+      <h1>AI-tanácsadás, ami <em>működő rendszert</em> ad át. Nem diasort.</h1>
+      <p class="lead">Produktizált AI-adopció, compliance és implementáció KKV-knak és csapatoknak — fix, publikált díjakkal, agentic delivery-vel, EU-adatszuverén működéssel. Az első use case-ünk a sajátunk: a Globility global-mobility praxisát vittük agentic AI-ra, és élesben demózzuk.</p>
+      <div class="ctas">
+        <a class="btn" href="#contact">Foglalj 30 perces readiness hívást</a>
+        <a class="btn ghost" href="#pricing">Csomagok és árak</a>
+      </div>
+      <div class="chips">
+        <span>GDPR-natív</span><span>EU AI Act-ready</span><span>Self-hosted, EU-infra</span><span>Fix díjak, publikálva</span><span>Nem general-purpose AI</span>
+      </div>
+    </div>
+    <aside class="ladder">
+      <h3>Így dolgozunk együtt</h3>
+      <div class="step"><div class="n">1</div><div><b>Ingyenes readiness scan</b><p>5 perces online felmérés vagy 48 órás automatizációs audit — megmondjuk, mi vonatkozik rád és hol a gyors nyereség.</p></div></div>
+      <div class="step"><div class="n">2</div><div><b>Fix díjas sprint</b><p>5–20 munkanap, kész dokumentumok és működő workflow-k — nem diasor. A sprint díja beszámít a folytatásba.</p></div></div>
+      <div class="step"><div class="n">3</div><div><b>Retainer vagy fractional AI lead</b><p>Folyamatos üzemeltetés, monitoring és AI-vezetés — havidíjas, bármikor felmondható.</p></div></div>
+      <p class="note">Garancia: revíziós körök + fizetés a validált átadás után. Óradíj nincs.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap cols">
+    <div>
+      <h2>A kérdés nem az, hogy van-e még időd.<br>Hanem hogy tudod-e, mi vonatkozik rád <em style="color:#E8C468;font-style:normal;">ma</em>.</h2>
+      <p>Az AI Act szabályai 2026 májusában változtak (Digital Omnibus): a nehéz, magas kockázatú kötelezettségek 2027–28-ra csúsztak — <b>de az alap már most él.</b> És őszintén: a legtöbb rendszered valószínűleg minimal-risk. Pont ezért érdemes tisztán látni, mielőtt bárki félelemből ad el neked compliance-t.</p>
+    </div>
+    <ul class="tl">
+      <li><span class="d live">2025. febr. óta él</span><span><b>Tiltott AI-gyakorlatok tilalma + AI-jártassági kötelezettség</b> — ez ma is kötelez, dokumentálható bizonyítékkal.</span></li>
+      <li><span class="d live">2026. aug. 2.</span><span><b>Átláthatósági kötelezettségek</b> — chatbotok, generatív kimenetek jelölése.</span></li>
+      <li><span class="d">2027–2028</span><span><b>Magas kockázatú rendszerek kötelezettségei</b> — ide tartozik a migrációs/HR-döntési AI. Időd van rá — ha most jól sorolod be.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <span class="kicker">Szolgáltatások · KKV-k és csapatok</span>
+    <h2 class="title">Adopciótól az implementációig — produktizálva, fix díjjal</h2>
+    <p class="sub">Nem "AI-tanácsadást" adunk el, hanem kész csomagokat: definiált terjedelem, határidő, ár. Mindegyik önállóan is megáll, és mindegyik díja beszámít a következő lépcsőbe.</p>
+
+    <div class="free-banner">
+      <div><b>Kezdd ingyen: AI Readiness Scan + 48 órás automatizációs audit</b><p>5 perc online, vagy 48 órán belül ROI-becslés a folyamataidra. Nincs elköteleződés — csak tisztánlátás.</p></div>
+      <a class="btn small" href="#contact">Kérem a scant</a>
+    </div>
+
+    <div class="index">
+      <div class="row"><span class="no">01</span><h3>AI Act Readiness Sprint<small>5 munkanap · 8 kész dokumentum: eszközleltár, kockázati triage, AI-jártassági bizonyíték-pack, beszállítói dokumentumkérők, 30 napos roadmap.</small></h3><span class="form">fix díj · 3 csomag</span><span class="price">250–750 E Ft</span></div>
+      <div class="row"><span class="no">02</span><h3>EU AI Act Literacy Programme<small>Art. 4 szerinti, szerep-alapú AI-jártassági képzés tanúsítvánnyal a compliance-aktába. Éves frissítéssel.</small></h3><span class="form">fix díj / szervezet</span><span class="price">800 E – 2,4 M Ft</span></div>
+      <div class="row"><span class="no">03</span><h3>AI workflow-automatizáció<small>n8n + agentic workflow-k, self-hosted, EU-szervereken. Starter (3–5 workflow) · Business (8–12 + AI agent) · Enterprise (SLA).</small></h3><span class="form">fix díj · 3 tier</span><span class="price">600 E – 2,4 M+ Ft</span></div>
+      <div class="row"><span class="no">04</span><h3>Funkció-specifikus AI-workshop<small>HR, legal, ops és pénzügyi csapatoknak: hol fér bele az AI, mit lépj először — a saját folyamataitokon.</small></h3><span class="form">napidíj</span><span class="price">400 E – 1,2 M Ft</span></div>
+      <div class="row"><span class="no">05</span><h3>Fractional AI Lead<small>Rész-munkaidős AI-vezetés: stratégia, governance, vendor-döntések, pilotok. 1–2 nap/hét, min. 6 hónap, 90 napos bevezetési ív.</small></h3><span class="form">havidíj · publikált árkártya</span><span class="price">1 – 2,8 M Ft/hó</span></div>
+      <div class="row"><span class="no">06</span><h3>Advisory retainer<small>Sprint vagy CAIO-szakasz utáni utókövetés: havi call + async hozzáférés, negyedéves roadmap-frissítés.</small></h3><span class="form">havidíj</span><span class="price">400 E – 1 M Ft/hó</span></div>
+      <div class="row"><span class="no">07</span><h3>AI Pilot — egy folyamat, mért eredménnyel<small>2–6 hét alatt egy kiválasztott folyamat agentic automatizálása, előre rögzített KPI-k ellen. Ha nem hozza, nem fizetsz teljes árat.</small></h3><span class="form">fix díj · KPI-hoz kötve</span><span class="price">3,2 – 10 M Ft</span></div>
+      <div class="row"><span class="no">08</span><h3>Ready-to-own AI-alkalmazás<small>Egyedi agentic eszköz a folyamataidra — a végén a tiéd: forráskód, dokumentáció, betanított csapat. Nincs vendor lock-in.</small></h3><span class="form">fix díj + opcionális support</span><span class="price">6 – 16 M Ft</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="proof">
+  <div class="wrap">
+    <span class="kicker">Élő referencia</span>
+    <h2 class="title">Az első ügyfelünk mi magunk voltunk.</h2>
+    <p class="sub">Mielőtt bárkinek AI-t adtunk volna el, a saját praxisunkat építettük át: a Globility tíz éve visz nemzetközi cégeknek immigrációs és munkajogi ügyeket — ma agentic rendszer viszi a rutint. Ez nem koncepció és nem demó-videó: napi üzemben futó rendszer, amit élőben megmutatunk.</p>
+
+    <div class="feature">
+      <div class="txt">
+        <span class="tag">use case · Globility</span>
+        <h3>Dokumentum-káoszból strukturált ügyadat</h3>
+        <p>Útlevelek, munkaszerződések, engedély-PDF-ek, HR-táblázatok — ahogy az ügyfél küldi, bármilyen formátumban. Az agentic pipeline standardizált, hibaellenőrzött ügyadatot csinál belőle, ember-a-hurokban validálással. Ugyanez az architektúra bármilyen dokumentum-intenzív folyamatra átültethető: számlák, szerződések, HR-akták, ajánlatkérések.</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Intake → strukturált ügyadat</div>
+        <ul>
+          <li><span>passport_scan_TR.pdf</span><b class="ok">✓ kinyerve</b></li>
+          <li><span>munkaszerzodes_v3_final.docx</span><b class="ok">✓ kinyerve</b></li>
+          <li><span>HR_lista_2026_Q3.xlsx</span><b class="ok">✓ 41 sor</b></li>
+          <li><span>engedély lejárat — Yilmaz A.</span><b class="warn">⚠ 34 nap</b></li>
+          <li><span>hiányzó dokumentum</span><b class="warn">⚠ 2 ügynél</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature rev">
+      <div class="txt">
+        <span class="tag">use case · Globility</span>
+        <h3>Határidő-figyelés, ami a rendszereid fölött él</h3>
+        <p>Engedély-lejáratok, bejelentési kötelezettségek, A1-igazolások — folyamatos agentic monitoring a meglévő rendszerek <em>fölött</em>, migráció nélkül, riasztással azelőtt, hogy a csúszásból bírság lenne. A minta általános: minden cégnek vannak határidői, amiknek a csúszása pénzbe kerül.</p>
+        <p class="pr">Így néz ki nálunk éppen — ilyet építünk neked is, a te határidőidre.</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Következő 60 nap</div>
+        <ul>
+          <li><span>3 engedély-hosszabbítás esedékes</span><b class="ok">draft kész</b></li>
+          <li><span>1 kiküldetés-bejelentés (DE)</span><b class="warn">⚠ 12 nap</b></li>
+          <li><span>2 A1-igazolás lejár</span><b class="ok">ütemezve</b></li>
+          <li><span>szálláshely-bejelentés</span><b class="ok">rendben</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="free-banner" style="margin-top:34px;">
+      <div><b>Nézd meg élőben, 20 percben</b><p>A readiness híváson megmutatjuk a futó rendszert — nem slide-okat. Global mobility szolgáltatás kell? Az a Globility brand alatt fut: <a href="https://globilityconsulting.com">globilityconsulting.com</a>.</p></div>
+      <a class="btn small" href="#contact">Kérek demót</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing">
+  <div class="wrap">
+    <span class="kicker">Árak</span>
+    <h2 class="title">Publikált árak. Errefelé ez ritka — pont ezért csináljuk.</h2>
+    <p class="sub">Minden ár nettó, + 27% áfa. Fix terjedelem, fix díj; óradíjas elszámolás outcome-munkára nincs. A sprint-díjak beszámítanak a ráépülő megbízásba.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Szolgáltatás</th><th>Forma</th><th>Ár (nettó)</th></tr></thead>
+        <tbody>
+          <tr><td>AI Readiness Scan / 48h automatizációs audit</td><td>online / 48 óra</td><td class="pnum">ingyenes</td></tr>
+          <tr><td>AI Act Readiness Sprint (Starter / Standard / Priority)</td><td>5 munkanap, fix</td><td class="pnum">250 / 450 / 750 E Ft</td></tr>
+          <tr><td>EU AI Act Literacy Programme</td><td>szervezetenként, éves frissítés</td><td class="pnum">800 E – 2,4 M Ft</td></tr>
+          <tr><td>Workflow-automatizáció (Starter / Business / Enterprise)</td><td>fix csomag</td><td class="pnum">600 E / 1,2 M / 2,4 M+ Ft</td></tr>
+          <tr><td>AI-workshop (HR · legal · ops · pénzügy)</td><td>napidíj</td><td class="pnum">400 E – 1,2 M Ft</td></tr>
+          <tr><td>Fractional AI Lead (1–2 nap/hét)</td><td>havidíj, min. 6 hó</td><td class="pnum">1 – 2,8 M Ft/hó</td></tr>
+          <tr><td>Advisory retainer</td><td>havidíj</td><td class="pnum">400 E – 1 M Ft/hó</td></tr>
+          <tr><td>AI pilot (1 folyamat, mért KPI-kkal)</td><td>fix, KPI-hoz kötve</td><td class="pnum">3,2 – 10 M Ft</td></tr>
+          <tr><td>Ready-to-own AI-alkalmazás</td><td>fix + support</td><td class="pnum">6 – 16 M Ft</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-note">Viszonyítás: egy nemzetközi tanácsadó cég mobility-retainere vagy egy főállású AI-vezető (~évi 40+ M Ft) többszöröse ennek. A pontos ajánlat a readiness hívás után 48 órán belül érkezik.</p>
+
+    <div class="gset" style="margin-top:44px;">
+      <div class="g"><b>Fizetés validált átadás után</b><p>A projektdíj akkor esedékes, amikor a kimenetet átvetted és működik. Előleg csak hosszabb build-eknél, mérföldkövekhez kötve.</p></div>
+      <div class="g"><b>Revíziós garancia</b><p>Sprint-kimeneteknél addig iterálunk a terjedelmen belül, amíg használható — nem „leszállítottuk, viszlát".</p></div>
+      <div class="g"><b>A sprint díja beszámít</b><p>Ha a sprint után folytatjuk, a sprint díját levonjuk a következő szakasz díjából.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="fit">
+  <div class="wrap">
+    <span class="kicker">Illeszkedés</span>
+    <h2 class="title">Kinek való — és kinek nem</h2>
+    <p class="sub">Egy 2–5 fős szakértői boutique vagyunk, nem mindenkinek mi vagyunk a jó válasz. Ez így korrekt.</p>
+    <div class="fit">
+      <div class="col">
+        <h3>Nekik való</h3>
+        <ul>
+          <li>10–200 fős KKV-k és nemzetközi cégek HU/CEE-ben, akik AI-t használnak vagy használnának a napi működésben</li>
+          <li>Csapatok, ahol a dokumentum- és határidő-káosz pénzbe kerül (HR, legal, ops, pénzügy)</li>
+          <li>Szakmai szolgáltatók, akik a saját folyamataikat akarják AI-ra vinni — úgy, hogy a rendszer az övék maradjon</li>
+          <li>Cégvezetők, akiknek AI-döntésekhez kell vezetői kapacitás — de nem főállásban</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>Nem (vagy csak jogi partnerrel)</h3>
+        <ul>
+          <li>Bank, biztosító, kórház — erősen szabályozott, magas kockázatú telepítések</li>
+          <li>Biometria, munkavállalói pontozás, automatizált hatósági döntéshozatal</li>
+          <li>Aki jogi véleményt vagy tanúsítványt vár — mi operatív readiness-t és működő rendszereket szállítunk, jogi review-partnerrel</li>
+          <li>Aki „ChatGPT-t akar venni" — eszközt bárhol kapsz; mi működő folyamatot adunk</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow" style="color:#7FBFA8;">Miért mi</span>
+      <h2>Szakértő + AI agent. Ebben a sorrendben.</h2>
+      <p>A legtöbb AI-ügynökség technológiát árul, és a te cégeden tanulja meg, mi az az éles üzem. Mi fordítva jöttünk: <b>egy tíz éve futó, szabályozott, dokumentum-intenzív praxist (Globility) építettünk át elsőként agentic AI-ra</b> — a saját pénzünkön, a saját ügyfeleinken mérve. Amit ajánlunk, azt előbb magunkon próbáltuk ki.</p>
+      <p>Amit szállítunk, az nem general-purpose AI: éles üzemben edzett workflow, ember-a-hurokban validálással. A rutint a gépek viszik, a döntést a szakértő. <b>Minden kimenetet ember néz át, mielőtt hozzád ér.</b></p>
+      <p>EU-adatszuverén működés: self-hosted infrastruktúra EU-szervereken, DPA minden AI-vendorral, ügyféladat soha nem megy publikus toolba.</p>
+    </div>
+    <div class="stats">
+      <div><b>1. ügyfél</b><span>mi magunk — a Globility agentic rendszere napi üzemben, demózhatóan</span></div>
+      <div><b>10+ év</b><span>szabályozott, compliance-kritikus praxis nemzetközi ügyfélkörrel</span></div>
+      <div><b>0 óradíj</b><span>fix terjedelem, fix ár, publikálva</span></div>
+      <div><b>100% EU</b><span>adatkezelés, infra, szabályozási fókusz</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap" style="max-width:860px;">
+    <span class="kicker">Kérdések</span>
+    <h2 class="title" style="margin-bottom:34px;">Amit a hívás előtt tudni érdemes</h2>
+    <details><summary>Ez jogi tanácsadás?</summary><p>Nem. Operatív readiness-dokumentációt, működő automatizációt és AI-governance-t szállítunk. A magas kockázatú vagy tiltás-gyanús eseteket jelöljük és jogi review-ra eszkaláljuk — végleges megfelelőségi döntéshez jogi partner ajánlott.</p></details>
+    <details><summary>Hová kerülnek az adataink?</summary><p>EU-szerveren futó, self-hosted rendszerekbe. Minden AI-vendorral DPA-t kötünk, ügyféladat publikus AI-eszközbe nem kerül. GDPR-megfelelés nem extra — alapbeállítás.</p></details>
+    <details><summary>Miért fix díj?</summary><p>Mert az óradíj a bizonytalanságot árazza, a fix díj az eredményt. Te előre tudod, mit kapsz és mennyiért; a hatékonyság-kockázat a miénk. Ezért is merjük publikálni az árainkat.</p></details>
+    <details><summary>Mekkora cég kell legyünk ehhez?</summary><p>A csomagok 10–200 fős szervezetekre vannak méretezve. Ennél kisebb cégnek az ingyenes scan + egy workshop a jó belépő; nagyobbnak a fractional AI lead konstrukcióról érdemes beszélnünk.</p></details>
+    <details><summary>Mi a viszonyotok a Globility-hez?</summary><p>Közös alapító és közös praxis. A global mobility szolgáltatások (engedélyek, kiküldetés, compliance-ügyintézés) a Globility brand alatt futnak; itt AI-tanácsadást és -implementációt kapsz. A Globility agentic rendszere az első, élesben futó referenciánk — a demón ezt mutatjuk meg.</p></details>
+    <details><summary>Mi történik a 30 perces híváson?</summary><p>Végigmegyünk egy readiness-checklisten: mit használtok ma, hol a legnagyobb kockázat vagy időnyelő, és megmondjuk, melyik csomag releváns — vagy azt, hogy egyik sem. 48 órán belül írásos ajánlatot kapsz.</p></details>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2>Kezdjük egy 30 perces hívással.</h2>
+    <p>Átnézzük az AI-használatodat és a compliance-kitettségedet egy egyszerű checklist mentén — és megmondjuk, mi vonatkozik rád ma. Nincs elköteleződés.</p>
+    <a class="btn" href="mailto:hello@agentizeme.eu" data-brandmail>Readiness hívás foglalása</a>
+    <p style="margin-top:18px;font-size:.85rem;">vagy írj: <a href="mailto:hello@agentizeme.eu" data-brandmail-text>hello@agentizeme.eu</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <span class="wordmark" style="font-size:.95rem;"><span class="brand-name">agentizeme</span><span class="dot">.</span></span>
+      <p style="margin-top:10px;max-width:44em;">Nem jogi tanácsadás. Operatív felkészülési dokumentáció és AI-implementáció; végleges megfelelőségi döntésekhez jogi review ajánlott. A szabályozási állapot 2026. júliusi pillanatkép.</p>
+      <p style="margin-top:10px;">© 2026 · Budapest</p>
+    </div>
+    <div class="brandprev">belső előnézet — brand:
+      <button onclick="setBrand('agentizeme')">agentizeme</button>|
+      <button onclick="setBrand('Consolvit')">Consolvit</button>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /lang-hu -->
+
+<!-- ================================================================ EN -->
+<div class="lang" id="lang-en">
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Budapest · AI consulting &amp; implementation · from September 2026</span>
+      <h1>AI consulting that hands over a <em>working system</em>. Not a slide deck.</h1>
+      <p class="lead">Productized AI adoption, compliance and implementation for SMEs and teams — at fixed, published fees, with agentic delivery and EU data sovereignty. Our first use case is our own: we moved Globility's global-mobility practice onto agentic AI, and we demo it live.</p>
+      <div class="ctas">
+        <a class="btn" href="#contact">Book a 30-minute readiness call</a>
+        <a class="btn ghost" href="#pricing">Packages &amp; pricing</a>
+      </div>
+      <div class="chips">
+        <span>GDPR-native</span><span>EU AI Act-ready</span><span>Self-hosted, EU infra</span><span>Fixed fees, published</span><span>Not general-purpose AI</span>
+      </div>
+    </div>
+    <aside class="ladder">
+      <h3>How we work together</h3>
+      <div class="step"><div class="n">1</div><div><b>Free readiness scan</b><p>A 5-minute online assessment or a 48-hour automation audit — we tell you what applies to you and where the quick wins are.</p></div></div>
+      <div class="step"><div class="n">2</div><div><b>Fixed-fee sprint</b><p>5–20 working days, finished documents and working workflows — not a slide deck. The sprint fee is credited toward what follows.</p></div></div>
+      <div class="step"><div class="n">3</div><div><b>Retainer or fractional AI lead</b><p>Ongoing operations, monitoring and AI leadership — monthly, cancel anytime.</p></div></div>
+      <p class="note">Guarantee: revision rounds + payment after validated delivery. No hourly billing.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap cols">
+    <div>
+      <h2>The question isn't whether you still have time.<br>It's whether you know what applies to you <em style="color:#E8C468;font-style:normal;">today</em>.</h2>
+      <p>The AI Act changed in May 2026 (Digital Omnibus): the heavy high-risk obligations slipped to 2027–28 — <b>but the baseline is already live.</b> And honestly: most of your systems are probably minimal-risk. That's exactly why you should see clearly before anyone sells you compliance out of fear.</p>
+    </div>
+    <ul class="tl">
+      <li><span class="d live">live since Feb 2025</span><span><b>Ban on prohibited AI practices + AI literacy obligation</b> — binding today, with documentable evidence.</span></li>
+      <li><span class="d live">2 Aug 2026</span><span><b>Transparency obligations</b> — labeling chatbots and generative outputs.</span></li>
+      <li><span class="d">2027–2028</span><span><b>High-risk system obligations</b> — this is where migration/HR-decision AI sits. You have time — if you classify correctly now.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="services-en">
+  <div class="wrap">
+    <span class="kicker">Services · SMEs and teams</span>
+    <h2 class="title">From adoption to implementation — productized, fixed-fee</h2>
+    <p class="sub">We don't sell "AI consulting" — we sell finished packages: defined scope, deadline, price. Each stands alone, and each fee is credited toward the next step of the ladder.</p>
+
+    <div class="free-banner">
+      <div><b>Start free: AI Readiness Scan + 48-hour automation audit</b><p>5 minutes online, or an ROI estimate on your processes within 48 hours. No commitment — just clarity.</p></div>
+      <a class="btn small" href="#contact">Get the scan</a>
+    </div>
+
+    <div class="index">
+      <div class="row"><span class="no">01</span><h3>AI Act Readiness Sprint<small>5 working days · 8 finished documents: tool inventory, risk triage, AI-literacy evidence pack, vendor documentation requests, 30-day roadmap.</small></h3><span class="form">fixed fee · 3 packages</span><span class="price">€625–1,875</span></div>
+      <div class="row"><span class="no">02</span><h3>EU AI Act Literacy Programme<small>Article 4-aligned, role-based AI literacy training with a certificate for your compliance file. Annual refresh.</small></h3><span class="form">fixed fee / org</span><span class="price">€2,000–6,000</span></div>
+      <div class="row"><span class="no">03</span><h3>AI workflow automation<small>n8n + agentic workflows, self-hosted on EU servers. Starter (3–5 workflows) · Business (8–12 + AI agents) · Enterprise (SLA).</small></h3><span class="form">fixed fee · 3 tiers</span><span class="price">€1,500–6,000+</span></div>
+      <div class="row"><span class="no">04</span><h3>Function-specific AI workshop<small>For HR, legal, ops and finance teams: where AI fits and what to do first — on your own processes.</small></h3><span class="form">day rate</span><span class="price">€1,000–3,000</span></div>
+      <div class="row"><span class="no">05</span><h3>Fractional AI Lead<small>Part-time AI leadership: strategy, governance, vendor decisions, pilots. 1–2 days/week, min. 6 months, 90-day onboarding arc.</small></h3><span class="form">monthly · published rate card</span><span class="price">€2,500–7,000/mo</span></div>
+      <div class="row"><span class="no">06</span><h3>Advisory retainer<small>Post-sprint / post-CAIO follow-through: monthly call + async access, quarterly roadmap refresh.</small></h3><span class="form">monthly</span><span class="price">€1,000–2,500/mo</span></div>
+      <div class="row"><span class="no">07</span><h3>AI Pilot — one process, measured results<small>In 2–6 weeks we automate one selected process with agentic workflows, against pre-agreed KPIs. If it doesn't deliver, you don't pay full price.</small></h3><span class="form">fixed fee · KPI-bound</span><span class="price">€8,000–25,000</span></div>
+      <div class="row"><span class="no">08</span><h3>Ready-to-own AI application<small>A custom agentic tool for your processes — and in the end it's yours: source code, documentation, a trained team. No vendor lock-in.</small></h3><span class="form">fixed fee + optional support</span><span class="price">€15,000–40,000</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="proof-en">
+  <div class="wrap">
+    <span class="kicker">Live reference</span>
+    <h2 class="title">Our first client was ourselves.</h2>
+    <p class="sub">Before selling AI to anyone, we rebuilt our own practice: Globility has run immigration and labor-law cases for international companies for ten years — today an agentic system carries the routine. This isn't a concept or a demo video: it's a system in daily production, and we show it live.</p>
+
+    <div class="feature">
+      <div class="txt">
+        <span class="tag">use case · Globility</span>
+        <h3>From document chaos to structured case data</h3>
+        <p>Passports, employment contracts, permit PDFs, HR spreadsheets — however the client sends them, in any format. The agentic pipeline turns them into standardized, error-checked case data, with human-in-the-loop validation. The same architecture transfers to any document-heavy process: invoices, contracts, HR files, RFQs.</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Intake → structured case data</div>
+        <ul>
+          <li><span>passport_scan_TR.pdf</span><b class="ok">✓ extracted</b></li>
+          <li><span>employment_contract_v3_final.docx</span><b class="ok">✓ extracted</b></li>
+          <li><span>HR_list_2026_Q3.xlsx</span><b class="ok">✓ 41 rows</b></li>
+          <li><span>permit expiry — Yilmaz A.</span><b class="warn">⚠ 34 days</b></li>
+          <li><span>missing document</span><b class="warn">⚠ 2 cases</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature rev">
+      <div class="txt">
+        <span class="tag">use case · Globility</span>
+        <h3>Deadline monitoring that lives on top of your systems</h3>
+        <p>Permit expiries, notification duties, A1 certificates — continuous agentic monitoring <em>on top of</em> existing systems, no migration, with alerts before a slip becomes a fine. The pattern is universal: every company has deadlines that cost money when they slip.</p>
+        <p class="pr">This is what it looks like for us right now — we build the same for your deadlines.</p>
+      </div>
+      <div class="visual">
+        <div class="vh">Next 60 days</div>
+        <ul>
+          <li><span>3 permit renewals due</span><b class="ok">drafts ready</b></li>
+          <li><span>1 posting notification (DE)</span><b class="warn">⚠ 12 days</b></li>
+          <li><span>2 A1 certificates expiring</span><b class="ok">scheduled</b></li>
+          <li><span>accommodation registration</span><b class="ok">in order</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="free-banner" style="margin-top:34px;">
+      <div><b>See it live, in 20 minutes</b><p>On the readiness call we show you the running system — not slides. Need global mobility services themselves? Those run under the Globility brand: <a href="https://globilityconsulting.com">globilityconsulting.com</a>.</p></div>
+      <a class="btn small" href="#contact-en">Request a demo</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="pricing-en">
+  <div class="wrap">
+    <span class="kicker">Pricing</span>
+    <h2 class="title">Published prices. Rare around here — which is exactly why we do it.</h2>
+    <p class="sub">All prices net, + 27% VAT where applicable. Fixed scope, fixed fee; no hourly billing for outcome work. Sprint fees are credited toward follow-on engagements.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Service</th><th>Format</th><th>Price (net)</th></tr></thead>
+        <tbody>
+          <tr><td>AI Readiness Scan / 48h automation audit</td><td>online / 48 hours</td><td class="pnum">free</td></tr>
+          <tr><td>AI Act Readiness Sprint (Starter / Standard / Priority)</td><td>5 working days, fixed</td><td class="pnum">€625 / 1,125 / 1,875</td></tr>
+          <tr><td>EU AI Act Literacy Programme</td><td>per organization, annual refresh</td><td class="pnum">€2,000–6,000</td></tr>
+          <tr><td>Workflow automation (Starter / Business / Enterprise)</td><td>fixed package</td><td class="pnum">€1,500 / 3,000 / 6,000+</td></tr>
+          <tr><td>AI workshop (HR · legal · ops · finance)</td><td>day rate</td><td class="pnum">€1,000–3,000</td></tr>
+          <tr><td>Fractional AI Lead (1–2 days/week)</td><td>monthly, min. 6 months</td><td class="pnum">€2,500–7,000/mo</td></tr>
+          <tr><td>Advisory retainer</td><td>monthly</td><td class="pnum">€1,000–2,500/mo</td></tr>
+          <tr><td>AI pilot (1 process, measured KPIs)</td><td>fixed, KPI-bound</td><td class="pnum">€8,000–25,000</td></tr>
+          <tr><td>Ready-to-own AI application</td><td>fixed + support</td><td class="pnum">€15,000–40,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-note">For reference: a Big-4 mobility retainer or a full-time AI executive (€100K+/year) costs a multiple of this. You get a written proposal within 48 hours of the readiness call.</p>
+
+    <div class="gset" style="margin-top:44px;">
+      <div class="g"><b>Payment after validated delivery</b><p>Project fees fall due once you've received the output and it works. Deposits only on longer builds, tied to milestones.</p></div>
+      <div class="g"><b>Revision guarantee</b><p>On sprint outputs we iterate within scope until it's usable — not "delivered, goodbye".</p></div>
+      <div class="g"><b>Sprint fee credited</b><p>If we continue after the sprint, the sprint fee is deducted from the next phase.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="fit-en">
+  <div class="wrap">
+    <span class="kicker">Fit</span>
+    <h2 class="title">Who it's for — and who it isn't</h2>
+    <p class="sub">We're a 2–5 person expert boutique; we're not the right answer for everyone. That's only fair to say.</p>
+    <div class="fit">
+      <div class="col">
+        <h3>A good fit</h3>
+        <ul>
+          <li>SMEs and international companies in Hungary / CEE (10–200 people) using — or wanting to use — AI in daily operations</li>
+          <li>Teams where document and deadline chaos costs money (HR, legal, ops, finance)</li>
+          <li>Professional-services firms that want their own processes on AI — with the system remaining theirs</li>
+          <li>Executives who need AI leadership capacity for decisions — but not a full-time hire</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <h3>Not a fit (or only with a legal partner)</h3>
+        <ul>
+          <li>Banks, insurers, hospitals — heavily regulated, high-risk deployments</li>
+          <li>Biometrics, employee scoring, automated authority decision-making</li>
+          <li>Anyone expecting a legal opinion or certification — we deliver operational readiness and working systems, with a legal review partner</li>
+          <li>Anyone who "wants to buy ChatGPT" — you can get a tool anywhere; we deliver a working process</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow" style="color:#7FBFA8;">Why us</span>
+      <h2>Expert + AI agent. In that order.</h2>
+      <p>Most AI agencies sell technology and learn what production means on your company. We came the other way: <b>we were the first to rebuild a ten-year-old, regulated, document-heavy practice (Globility) on agentic AI</b> — on our own money, measured on our own clients. What we offer, we tried on ourselves first.</p>
+      <p>What we ship is not general-purpose AI: it's workflow hardened in daily production, with human-in-the-loop validation. Machines carry the routine; the expert makes the call. <b>Every output is reviewed by a human before it reaches you.</b></p>
+      <p>EU data sovereignty: self-hosted infrastructure on EU servers, DPAs with every AI vendor, client data never enters public tools.</p>
+    </div>
+    <div class="stats">
+      <div><b>Client #1</b><span>ourselves — Globility's agentic system in daily production, demoable</span></div>
+      <div><b>10+ yrs</b><span>regulated, compliance-critical practice with international clients</span></div>
+      <div><b>0 hourly</b><span>fixed scope, fixed fee, published</span></div>
+      <div><b>100% EU</b><span>data handling, infrastructure, regulatory focus</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq-en">
+  <div class="wrap" style="max-width:860px;">
+    <span class="kicker">Questions</span>
+    <h2 class="title" style="margin-bottom:34px;">Worth knowing before the call</h2>
+    <details><summary>Is this legal advice?</summary><p>No. We deliver operational readiness documentation, working automation and AI governance. High-risk or possibly-prohibited cases are flagged and escalated to legal review — a legal partner is recommended for final compliance decisions.</p></details>
+    <details><summary>Where does our data go?</summary><p>Into self-hosted systems running on EU servers. We sign DPAs with every AI vendor; client data never enters public AI tools. GDPR compliance isn't an add-on — it's the default.</p></details>
+    <details><summary>Why fixed fees?</summary><p>Because hourly billing prices uncertainty; fixed fees price the outcome. You know in advance what you get and for how much; the efficiency risk is ours. That's also why we dare to publish our prices.</p></details>
+    <details><summary>How big do we need to be?</summary><p>The packages are sized for organizations of 10–200 people. If you're smaller, the free scan plus a workshop is the right entry; if you're larger, let's talk about the fractional AI lead setup.</p></details>
+    <details><summary>What's your relationship with Globility?</summary><p>Shared founder, shared practice. Global mobility services themselves (permits, postings, compliance casework) run under the Globility brand; here you get AI consulting and implementation. Globility's agentic system is our first reference running in production — that's what we show on the demo.</p></details>
+    <details><summary>What happens on the 30-minute call?</summary><p>We walk through a readiness checklist: what you use today, where the biggest risk or time sink is, and we tell you which package is relevant — or that none is. You get a written proposal within 48 hours.</p></details>
+  </div>
+</section>
+
+<section class="final" id="contact-en">
+  <div class="wrap">
+    <h2>Let's start with a 30-minute call.</h2>
+    <p>We review your AI usage and compliance exposure against a simple checklist — and tell you what applies to you today. No commitment.</p>
+    <a class="btn" href="mailto:hello@agentizeme.eu" data-brandmail>Book a readiness call</a>
+    <p style="margin-top:18px;font-size:.85rem;">or write: <a href="mailto:hello@agentizeme.eu" data-brandmail-text>hello@agentizeme.eu</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <span class="wordmark" style="font-size:.95rem;"><span class="brand-name">agentizeme</span><span class="dot">.</span></span>
+      <p style="margin-top:10px;max-width:44em;">Not legal advice. Operational readiness documentation and AI implementation; legal review recommended for final compliance decisions. Regulatory status is a July 2026 snapshot.</p>
+      <p style="margin-top:10px;">© 2026 · Budapest</p>
+    </div>
+    <div class="brandprev">internal preview — brand:
+      <button onclick="setBrand('agentizeme')">agentizeme</button>|
+      <button onclick="setBrand('Consolvit')">Consolvit</button>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /lang-en -->
+
+<script>
+  /* language toggle */
+  function setLang(l){
+    document.getElementById('lang-hu').classList.toggle('on', l==='hu');
+    document.getElementById('lang-en').classList.toggle('on', l==='en');
+    document.getElementById('btn-hu').classList.toggle('on', l==='hu');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    document.documentElement.lang = l;
+    try{localStorage.setItem('lang', l);}catch(e){}
+    /* re-point header nav anchors to the visible language's sections */
+    var suffix = l==='en' ? '-en' : '';
+    var map = {0:'#services',1:'#proof',2:'#pricing'};
+    var links = document.querySelectorAll('nav.main a.navlink');
+    links.forEach(function(a,i){ a.href = map[i] + (l==='en' ? '-en' : ''); });
+    document.querySelector('nav.main a.btn').href = '#contact' + suffix;
+    /* nav labels */
+    links.forEach(function(a){
+      var t = a.getAttribute('data-t').split('|');
+      a.textContent = l==='hu' ? t[0] : t[1];
+    });
+    var cta = document.querySelector('nav.main a.btn');
+    var ct = cta.getAttribute('data-t').split('|');
+    cta.textContent = l==='hu' ? ct[0] : ct[1];
+  }
+
+  /* brand preview (internal, pending decision: agentizeme vs Consolvit) */
+  function setBrand(b){
+    document.querySelectorAll('.brand-name').forEach(function(el){ el.textContent = b; });
+    var mail = 'hello@' + b.toLowerCase() + '.eu';
+    document.querySelectorAll('[data-brandmail]').forEach(function(el){ el.href = 'mailto:' + mail; });
+    document.querySelectorAll('[data-brandmail-text]').forEach(function(el){ el.href = 'mailto:' + mail; el.textContent = mail; });
+    document.title = b + ' — Agentic AI · global mobility · workforce compliance';
+    try{localStorage.setItem('brand', b);}catch(e){}
+  }
+
+  (function(){
+    var l = 'hu';
+    try{ l = localStorage.getItem('lang') || 'hu'; }catch(e){}
+    var q = new URLSearchParams(location.search);
+    if(q.get('lang')) l = q.get('lang');
+    setLang(l);
+    var b = null;
+    try{ b = localStorage.getItem('brand'); }catch(e){}
+    if(q.get('brand')) b = q.get('brand');
+    if(b) setBrand(b);
+  })();
+</script>
+</body>
+</html>
