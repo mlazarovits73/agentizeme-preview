@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Két irány, egy alapítás — tanácsadói brief (agentizeme · Globility 2.0)</title>
+<style>
+  :root{
+    --bg:#FBFAF7; --surface:#FFFFFF; --surface-2:#F3F0E9; --border:#E2DDD2;
+    --text:#1A1E22; --muted:#5A6268;
+    --accent:#0E6B57; --accent-strong:#0A5040; --accent-soft:#E5F0EB;
+    --blue:#0077CC; --blue-soft:#E8F3FB;
+    --warn:#A66B00; --warn-soft:#FBF3E2;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14181B; --surface:#1B2125; --surface-2:#22292E; --border:#333C42;
+      --text:#E8EAEB; --muted:#9AA5AB;
+      --accent:#4CAE94; --accent-strong:#7FCDB8; --accent-soft:#1E3A32;
+      --blue:#5AB1F0; --blue-soft:#152B3B;
+      --warn:#E0B15C; --warn-soft:#33290F;
+    }
+  }
+  *{box-sizing:border-box;margin:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;padding-bottom:80px;}
+  a{color:var(--accent-strong);}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+  header.doc{border-bottom:1px solid var(--border);padding:46px 0 30px;margin-bottom:36px;background:var(--surface);}
+  .doc .meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:12px;}
+  .doc h1{font-size:1.9rem;font-weight:750;letter-spacing:-.02em;line-height:1.2;margin-bottom:10px;}
+  .doc p.lede{color:var(--muted);max-width:66ch;}
+  nav.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 22px;margin:0 0 36px;font-size:.9rem;}
+  nav.toc b{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:6px;}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:32px;}
+  nav.toc li{margin:3px 0;break-inside:avoid;}
+  @media(max-width:640px){nav.toc ol{columns:1;}}
+  section{margin:0 0 44px;}
+  h2{font-size:1.3rem;font-weight:700;letter-spacing:-.01em;margin:0 0 6px;}
+  h2 .num{color:var(--accent-strong);font-family:var(--mono);font-size:.95rem;margin-right:8px;}
+  h3{font-size:1rem;margin:20px 0 8px;}
+  p{max-width:72ch;}
+  p.sub{color:var(--muted);margin-bottom:16px;}
+  ul,ol{padding-left:22px;max-width:72ch;}
+  li{margin:5px 0;}
+  .callout{border-radius:10px;border:1px solid var(--border);background:var(--surface);padding:15px 20px;margin:16px 0;}
+  .callout.acc{background:var(--accent-soft);border-color:var(--accent);}
+  .callout.warnc{background:var(--warn-soft);border-color:var(--warn);}
+  .callout.bluec{background:var(--blue-soft);border-color:var(--blue);}
+  .callout b.h{display:block;margin-bottom:5px;}
+  .table-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface);margin:14px 0;}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;}
+  th,td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
+  th{background:var(--surface-2);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  td.p{font-family:var(--mono);font-size:.8rem;color:var(--accent-strong);white-space:nowrap;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+  @media(max-width:680px){.two{grid-template-columns:1fr;}}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;}
+  .card.a{border-top:3px solid var(--accent);}
+  .card.b{border-top:3px solid var(--blue);}
+  .card .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:8px;}
+  .card.a .k{color:var(--accent-strong);}
+  .card.b .k{color:var(--blue);}
+  .card h4{margin:0 0 8px;font-size:1.05rem;}
+  .card p,.card li{font-size:.9rem;}
+  .card ul{padding-left:18px;margin-top:8px;}
+  .grade{display:inline-block;font-family:var(--mono);font-size:.72rem;font-weight:700;border-radius:6px;padding:1px 8px;margin-right:4px;}
+  .gA{background:var(--accent-soft);color:var(--accent-strong);}
+  .gD{background:var(--warn-soft);color:var(--warn);}
+  .pill{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn);}
+  footer.doc{border-top:1px solid var(--border);margin-top:52px;padding-top:18px;font-size:.78rem;color:var(--muted);}
+  @media print{
+    body{background:#fff;color:#111;font-size:12px;}
+    nav.toc{display:none;}
+    section{break-inside:avoid-page;margin-bottom:24px;}
+    header.doc{padding:10px 0;}
+    a{color:#111;text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <div class="wrap">
+    <div class="meta">Bizalmas tanácsadói brief · 2026. július 9. · Lazarovits Márk</div>
+    <h1>Két irány, egy alapítás:<br>agentizeme &amp; Globility 2.0</h1>
+    <p class="lede">Hová jutottunk egy hét intenzív kutatás és építkezés után, mi a két üzleti koncepció, mi az igazolt bizonyíték mögöttük, és milyen döntésekben kérek véleményt. 15 perc olvasás; a mélyanyagok linkelve.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <b>Tartalom</b>
+  <ol>
+    <li><a href="#tldr">Vezetői összefoglaló</a></li>
+    <li><a href="#origin">Honnan indultunk, mit csináltunk</a></li>
+    <li><a href="#ketirany">A két koncepció egymás mellett</a></li>
+    <li><a href="#agentizeme">A · agentizeme részletesen</a></li>
+    <li><a href="#globility">B · Globility 2.0 részletesen</a></li>
+    <li><a href="#evidencia">A bizonyíték-alap (mit igazoltunk)</a></li>
+    <li><a href="#naptar">Ütemterv és határidők</a></li>
+    <li><a href="#kerdesek">Nyitott döntések — ebben kérek véleményt</a></li>
+    <li><a href="#anyagok">Elkészült anyagok (linkek)</a></li>
+  </ol>
+</nav>
+
+<section id="tldr">
+  <h2><span class="num">1</span>Vezetői összefoglaló</h2>
+  <p><b>2026. szeptember 1-jén új céget indítok.</b> A kiindulópont egy piackutatás volt 36 sikeres AI-cégről; ebből építettünk szolgáltatás-portfóliót, két működő honlapot, majd — és ez a legfontosabb — <b>független tényellenőrzést futtattunk</b>: cégnyilvántartásokból, review-platformokról és sajtóból megnéztük, a minta-cégek közül melyik mögött van valódi, fizető ügyfélkörrel működő üzlet. Az eredmény kijózanító: <b>a "sikersztorik" fele nem élte túl az ellenőrzést</b> — de ami túlélte, az pontos, másolható playbookot adott.</p>
+  <p>Menet közben egy fontos döntés megszületett: <b>a két termékvonal két külön brand.</b></p>
+  <div class="two">
+    <div class="card a">
+      <span class="k">A · agentizeme (munkanév)</span>
+      <h4>AI-tanácsadás és -implementáció</h4>
+      <p>Produktizált AI-adopció, compliance (EU AI Act) és implementáció magyar/CEE KKV-knak és csapatoknak. Fix, publikált díjak. <b>Ez az új cég.</b> Hitelesség-alap: „az első ügyfelünk mi magunk voltunk" — a Globility-praxist vittük elsőként agentic AI-ra, és élőben demózzuk.</p>
+    </div>
+    <div class="card b">
+      <span class="k">B · Globility 2.0</span>
+      <h4>Mobility &amp; Workforce Compliance AI</h4>
+      <p>A meglévő Globility-praxis AI-termékvonala, a Globility brand alatt: dokumentum-feldolgozás, határidő-monitoring, compliance-audit — később szoftvertermék (Mobility Drafting Assistant). A meglévő ügyfélkör az azonnali piac.</p>
+    </div>
+  </div>
+  <div class="callout acc">
+    <b class="h">A három legfontosabb, tényekkel alátámasztott felismerés:</b>
+    <ul>
+      <li><b>A domain-szakértelem az üzlet, az AI a szorzó.</b> Az egész kutatás legerősebben igazolt piaca az immigrációs-jogi AI (két egymástól független, működő cég) — pontosan a mi terepünk.</li>
+      <li><b>A disztribúció a szűk keresztmetszet, nem a termék.</b> A leglátványosabb negatív bizonyíték: egy csiszolt AI Act-tanácsadó weboldal önmagában évi 881 eurót termelt. Ami működik: szakmai testületek, kamarák, képzési csatornák — és ezekre kész, konkrét belépési tervünk van.</li>
+      <li><b>Reális elvárás:</b> egy jól futó 2–3 fős EU-s AI-boutique ~2 év után ~€320K/év (svéd cégadatból igazolva). Budapesten az első év őszinte tervezési sávja <b>€80–200K</b> — nem a marketing-anyagokban keringő milliós számok.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="origin">
+  <h2><span class="num">2</span>Honnan indultunk, mit csináltunk (1 hét munkája)</h2>
+  <ol>
+    <li><b>Kutatás-feldolgozás:</b> 36 AI-cég a júliusi piackutatásból (szolgáltatók, termékek, tanácsadók) — mind weboldal-szinten újravalidálva.</li>
+    <li><b>Portfólió-desztilláció:</b> a mintákból induló szolgáltatás-portfólió, árazással; a meglévő, kész „AI Act Readiness Sprint" csomag beépítve.</li>
+    <li><b>Brand-szétválasztás:</b> agentizeme = AI-tanácsadás; mobility-AI = Globility 2.0. Két külön honlap elkészült és publikálva (lent linkelve).</li>
+    <li><b>Tényellenőrzés (traction-verifikáció):</b> a 12 releváns minta-cégre független due diligence — cégjegyzék (a svéd/finn/észt/UK registerek tényleges árbevételt publikálnak), LinkedIn-létszám, review-darabszámok, valódi sajtó vs PR.</li>
+    <li><b>Mélyelemzés:</b> a 3 legjobban igazolt modell (Visalaw.Ai, Hartz AI, ThoughtFox) boncolása + teljes magyar/EU csatornatérkép: kamarák, szakmai testületek, képzőhelyek, konferenciák — díjakkal, kontaktokkal, dátumokkal.</li>
+  </ol>
+</section>
+
+<section id="ketirany">
+  <h2><span class="num">3</span>A két koncepció egymás mellett</h2>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th></th><th>A · agentizeme</th><th>B · Globility 2.0</th></tr></thead>
+      <tbody>
+        <tr><td><b>Mit ad el</b></td><td>AI-adopció + AI Act compliance + implementáció, kész csomagokban</td><td>Mobility-AI szolgáltatások a meglévő praxisra építve; később SaaS</td></tr>
+        <tr><td><b>Kinek</b></td><td>10–200 fős KKV-k, HR/legal/ops/pénzügyi csapatok HU/CEE</td><td>Nemzetközi cégek külföldi munkavállalókkal; relocation-cégek; később EU-szintű piac</td></tr>
+        <tr><td><b>Bizonyított minta</b></td><td>Hartz AI (tréning→retainer létra, igazolt fizető ügyféllel) + ThoughtFox (testületi színpad-csatorna)</td><td>Visalaw.Ai (praktizáló-alapító + szakmai szervezeti disztribúció + saját kézikönyv mint moat; intézményi seed-körrel igazolva)</td></tr>
+        <tr><td><b>Első bevétel</b></td><td>Tréning + sprint: már Q4 2026 (képzőházi beszállítás + saját csomagok)</td><td>Audit + monitoring upsell a meglévő Globility-ügyfeleknél: 30 napon belül tesztelhető</td></tr>
+        <tr><td><b>Fő csatorna</b></td><td>Kamarák/szövetségek + képzőházak + EDIH (részletek lent)</td><td>EuRA (350+ relocation-cég szövetsége) + AmCham/DUIHK + meglévő ügyfélkör</td></tr>
+        <tr><td><b>Hosszú távú eszköz</b></td><td>Referencia-gépezet + fractional AI-vezetői retainerek</td><td><b>Mobility Drafting Assistant SaaS</b> (€150–300/hó/seat) — a legerősebb founder-fit termék</td></tr>
+        <tr><td><b>Kockázat</b></td><td>Zsúfolt, pozicionálókkal teli piac — de entitás+valós praxis nálunk van, náluk nincs</td><td>Lassabb építés; a "Cookbook" (kézikönyv) megírása jelentős munka</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <b class="h">Hogyan erősíti egymást a kettő?</b>
+    Az agentizeme a Globility-rendszert használja élő, demózható referenciaként („nem diát mutatunk, működő rendszert"); a Globility 2.0 pedig az agentizeme AI-kompetenciáján fut. Közös a delivery-infrastruktúra, külön az arc és az ügyfélkör. A kettő kereszthivatkozik, de nem keveredik.
+  </div>
+</section>
+
+<section id="agentizeme">
+  <h2><span class="num">4</span>A · agentizeme részletesen</h2>
+  <p class="sub">Pozicionálás: <i>„AI-tanácsadás, ami működő rendszert ad át. Nem diasort."</i> — fix, publikált árakkal (a piacon szinte senki nem publikál árat: bizalmi fegyver).</p>
+  <h3>A kínálat (nettó árak)</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Csomag</th><th>Ár</th></tr></thead>
+      <tbody>
+        <tr><td>Ingyenes belépő: AI Readiness Scan (5 perc) + 48 órás automatizációs audit</td><td class="p">0 Ft</td></tr>
+        <tr><td>AI Act Readiness Sprint (5 nap, 8 kész dokumentum) — <b>kész csomag</b></td><td class="p">250–750 E Ft</td></tr>
+        <tr><td>EU AI Act Literacy Programme (kötelező AI-jártassági képzés, tanúsítvánnyal)</td><td class="p">800 E – 2,4 M Ft</td></tr>
+        <tr><td>Workflow-automatizáció (3 csomag, self-hosted EU-infra)</td><td class="p">600 E – 2,4 M+ Ft</td></tr>
+        <tr><td>AI-workshop (HR · legal · ops · pénzügy)</td><td class="p">400 E – 1,2 M Ft/nap</td></tr>
+        <tr><td>Fractional AI Lead (1–2 nap/hét) — tréning-először, ez az upsell</td><td class="p">1 – 2,8 M Ft/hó</td></tr>
+        <tr><td>AI-pilot (1 folyamat, KPI-hoz kötve) / Ready-to-own alkalmazás</td><td class="p">3,2–10 M / 6–16 M Ft</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>A GTM-koncepció (a tényellenőrzésből levezetve)</h3>
+  <ul>
+    <li><b>Tréning a trójai faló, a retainer a következmény</b> — az egyetlen igazoltan fizető „fractional CAIO"-ügyfél a piacon egy tréningprogramból nőtt ki. Ezért: képzőházi beszállítás (a Training360 ma is árul AI-kurzusokat és trénert keres), kamarai képzési vonalak (BKIK), szakmai testületi előadások kreditponttal (belső ellenőrök, kamarai jogászok, compliance-esek).</li>
+    <li><b>Az árat nullázó csatorna:</b> az AI EDIH (EU-finanszírozott digitális innovációs hub) szolgáltatásai a KKV-nak ingyenesek, akár €300K/cég keretből — ha beszállítók leszünk, az AI Act sprint a vevőnek <b>ingyen</b> lehet. Ez az egy telefonhívás többet érhet, mint bármennyi marketing.</li>
+    <li><b>Review-gépezet az első naptól</b> (a legjobban működő versenytárs 90 értékelést gyűjtött kohorszonkénti, két-platformos kéréssel — a teljes social proofja ebből él).</li>
+    <li><b>Belépési költség-stack:</b> BKIK 15E + IVSZ 50E + JVSZ 199E + AmCham Take-Off 200E Ft ≈ félmillió forintból lefedjük a KKV-tömegbázist, a képzési platformokat és az AI-policy termeket.</li>
+  </ul>
+</section>
+
+<section id="globility">
+  <h2><span class="num">5</span>B · Globility 2.0 részletesen</h2>
+  <p class="sub">Pozicionálás: <i>„Ugyanazok a mobility-szakértők. Most agentic motorral."</i> — nem új cég, hanem a bizalmat élvező Globility, AI-val felgyorsítva.</p>
+  <h3>A kínálat (nettó árak)</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Csomag</th><th>Ár</th></tr></thead>
+      <tbody>
+        <tr><td>Work-permit &amp; compliance audit (2 hét, fix)</td><td class="p">800 E – 2 M Ft</td></tr>
+        <tr><td>„Peace of Mind" határidő-monitoring (engedélyek, A1, bejelentések — a meglévő rendszerek fölé)</td><td class="p">200 – 800 E Ft/hó</td></tr>
+        <tr><td>Document-intake automatizációs pilot (1 folyamat, KPI-val)</td><td class="p">3,2 – 10 M Ft</td></tr>
+        <tr><td>Mobility Drafting Assistant / Permit Dashboard <span class="pill">2027 · SaaS</span></td><td class="p">€150–300/hó/seat</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Miért hisszük, hogy ez a nagyobb lehetőség</h3>
+  <ul>
+    <li><b>A piac igazolt:</b> a Visalaw.Ai az amerikai immigrációs ügyvédi kamarával (AILA, 16 000 tag) közös termékkel, intézményi befektetői körrel működik; egy másik, 3 fős cég (DraftyAI) ugyanazt az éket $79–250/hó áron monetizálja. Két független cég ugyanazon a piacon = validált kereslet. <b>Az EU/CEE-ben ez a modell lemásolatlan.</b></li>
+    <li><b>A recept ismert:</b> (1) a praktizáló megírja a szakma kézikönyvét → (2) egy szakmai szervezet brandjével közösen indít, kezdetben csak a tagoknak → (3) a praxis finanszírozza a fejlesztést a termék-piac illeszkedésig. A mi "AILA-analógunk" az <b>EuRA</b> (350+ európai relocation-cég, budapesti tagokkal, akiket ismerünk; vendor-tagsági kategóriával, éves 800 fős kongresszussal).</li>
+    <li><b>Beépített szabályozási kereslet:</b> az EU AI Act a migrációs AI-t magas kockázatúnak sorolja — mi eleve human-in-the-loop + audit-trail architektúrával építünk, és ezt el is tudjuk adni (a versenytársak utólag szembesülnek vele).</li>
+    <li><b>Azonnal tesztelhető:</b> a monitoring és az audit a meglévő Globility-ügyfeleknél 30 napon belül validálható — nem kell hozzá új piacot építeni.</li>
+  </ul>
+</section>
+
+<section id="evidencia">
+  <h2><span class="num">6</span>A bizonyíték-alap — mit igazoltunk függetlenül</h2>
+  <p class="sub">A 12 releváns minta-cégből cégnyilvántartással, review-adatokkal és sajtóval ellenőriztük, mi valódi. A tanulság kétirányú: mit másoljunk — és mitől óvakodjunk.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Cég</th><th>Ítélet</th><th>A tény</th></tr></thead>
+      <tbody>
+        <tr><td>Visalaw.Ai (US, immigrációs AI)</td><td><span class="grade gA">A</span></td><td>Kamarai (AILA) disztribúció a kamara saját csatornáin igazolva; intézményi seed-kör; valódi jogi sajtó. <b>A Globility 2.0 mintája.</b></td></tr>
+        <tr><td>Outward Intelligence (US)</td><td><span class="grade gA">A</span></td><td>$1M+ első éves bevétel — a Business Insider adóbevallásból ellenőrizte. Tanulság: a network-first indulás ereje.</td></tr>
+        <tr><td>Hartz AI (UK)</td><td><span class="grade gA">A-</span></td><td>Az egyetlen igazolt fizető „fractional CAIO"-ügyfél a vizsgált piacon — tréningből felépítve, a kliens saját bejelentésével. <b>Az agentizeme mintája.</b></td></tr>
+        <tr><td>Alice Labs (SE)</td><td><span class="grade gA">B+</span></td><td>Valós, profitábilis — de a svéd beszámoló szerint €320K/év 3 fővel, miközben "100+ enterprise projektet" hirdet. <b>A reális benchmark.</b></td></tr>
+        <tr><td>LeftClick ($72K/hó "solo agency")</td><td><span class="grade gD">C</span></td><td>A pénz igazolhatóan kurzus-értékesítésből jön; az ügynökségnek egyetlen visszakereshető ügyfele sincs.</td></tr>
+        <tr><td>aims.consulting (AI Act boutique)</td><td><span class="grade gD">D</span></td><td>Csiszolt szakértői weboldal — mögötte <b>€881 éves bevétel</b> az észt cégjegyzék szerint. A lecke: a tartalom önmagában nem csatorna.</td></tr>
+        <tr><td>Agent-Led Growth ($15–25K/hó árlista)</td><td><span class="grade gD">D</span></td><td>Nincs cégbejegyzés, a nagy logók korábbi munkáltatók, nulla ügyfél-bizonyíték. A niche tele van ilyennel — <b>ez nekünk előny: mi cégjegyzékben látható, 10 éves praxissal indulunk.</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warnc">
+    <b class="h">Kalibráció a pénzügyi tervhez:</b>
+    a marketing-számok a szektorban rendszerszinten 5–10× túlzók. Igazolt viszonyítási pontok: 2–3 fős EU-boutique 2 év után ~€320K/év; budapesti első év reális sávja <b>€80–200K</b>; az egyetlen igazolt CAIO-ársáv a £2–6K/hó tier. A mi árazásunk ezekhez van horgonyozva.
+  </div>
+</section>
+
+<section id="naptar">
+  <h2><span class="num">7</span>Ütemterv és határidők</h2>
+  <div class="callout bluec">
+    <b class="h">Még júliusban esedékes (a launch ELŐTT):</b>
+    <ul>
+      <li><b>OHE HR &amp; Management Summit</b> (szept. 10.) — előadói pitch, közvetlen kontakt megvan</li>
+      <li><b>AI EDIH beszállítói hívás</b> — az „ingyenes sprint a KKV-nak" konstrukció tisztázása</li>
+      <li><b>Training360 hívás</b> — AI-oktatói beszállás (fizetett tréningnapok már Q4-ben)</li>
+      <li>AI Summit Budapest (szept. 7–8., launch-hét) + Compass (okt. 1–2.) speaker-pitchek; Marketing Summit early-bird (júl. 31.)</li>
+    </ul>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Időszak</th><th>agentizeme</th><th>Globility 2.0</th></tr></thead>
+      <tbody>
+        <tr><td><b>Szept 1–2. hét</b></td><td>Cégindulás · kamarai belépések (~félmillió Ft stack) · AmCham Digital Committee újraindulása (szept. 11.) · SEED-mentorjelentkezés</td><td>G2 monitoring-pilot indítása 1–2 meglévő ügyfélnél (30 napos első-bevétel szabály)</td></tr>
+        <tr><td><b>Szept–nov</b></td><td>3 kredites szakmai előadás (belső ellenőrök, kamarai jogászok, compliance-egyesület) · vendégoktatói szerződések · webinár + readiness-scan funnel</td><td>Audit-upsell a Globility-ügyfélkörben · AmCham HR Committee + DUIHK workshop · a HU/CEE mobility-kézikönyv vázlata</td></tr>
+        <tr><td><b>Q4 → 2027</b></td><td>Portfolio AI &amp; Digital Transformation (nov. 26.) · első nevesített case study · 2027-es színpadok</td><td>EuRA Affiliate-tagság (budapesti tag-jelöléssel) → Málta-kongresszus (2027 ápr.) · Drafting Assistant fejlesztés a praxis-bevételből</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="kerdesek">
+  <h2><span class="num">8</span>Nyitott döntések — ezekben kérem a véleményedet</h2>
+  <ol>
+    <li><b>Brand:</b> agentizeme vagy Consolvit? (A honlapon egy kapcsolóval mindkét verzió megnézhető — lent a link.) Szempontok: nemzetközi kiejthetőség, domain, a Globility-től való távolság.</li>
+    <li><b>Fókusz-allokáció:</b> az első 6 hónapban mennyi energia menjen az agentizeme-re (gyorsabb cash-flow, zsúfoltabb piac) vs a Globility 2.0-ra (lassabb, de védettebb, nagyobb hosszú távú érték)? A mostani tervünk ~60/40 az agentizeme javára az első negyedévben, a monitoring-pilot párhuzamos tesztjével.</li>
+    <li><b>Árazás jóváhagyása:</b> a fenti ársávok evidencia-horgonyzottak, de üzleti döntést igényelnek — különösen a fix-díjas, publikált árazás vállalása (a piacon szokatlan; mi bizalmi fegyvernek szánjuk).</li>
+    <li><b>EDIH-konstrukció:</b> ha az EU-finanszírozott (a KKV-nak ingyenes) csatorna megnyílik, mennyit engedjünk át rajta? (Ár-erózió kockázata vs piacnyitás.)</li>
+    <li><b>A mobility-kézikönyv ("Cookbook") vállalása:</b> a Globility 2.0 legerősebb hosszú távú mozdulata — de jelentős szerzői munka. Mikor és milyen formában érdemes belevágni (pl. EuRA-val közös kiadás céljával)?</li>
+    <li><b>Első-év árbevételi cél:</b> az igazolt benchmarkok alapján €80–200K a reális sáv — hol húzzuk meg a célt és a hozzá tartozó költségkeretet?</li>
+  </ol>
+</section>
+
+<section id="anyagok">
+  <h2><span class="num">9</span>Elkészült anyagok</h2>
+  <ul>
+    <li><b>agentizeme honlap (v1, működő):</b> <a href="https://mlazarovits73.github.io/agentizeme-preview/">mlazarovits73.github.io/agentizeme-preview</a> — HU/EN váltó; a lap alján belső brand-előnézet kapcsoló (agentizeme ↔ Consolvit)</li>
+    <li><b>Globility 2.0 landing (v1, működő):</b> <a href="https://mlazarovits73.github.io/agentizeme-preview/globility/">…/globility/</a> — EN/HU</li>
+    <li><b>Részletes indítócsomag</b> (portfólió + validáció + tervek): <a href="https://mlazarovits73.github.io/agentizeme-preview/pack-9d70c731/">…/pack-9d70c731/</a> (rejtett link, bizalmas)</li>
+    <li><b>Munkadokumentumok</b> (belső repo): survey-extrakció · 36 cég validációs riport · portfólió v2 · Globility-vonal · traction-verifikáció forrásokkal · mélyelemzési playbookok csatornatérképpel</li>
+  </ul>
+  <p class="sub" style="margin-top:10px;">Minden oldal kereső elől rejtve (noindex); a linkek szabadon továbbíthatók a tanácsadói körnek.</p>
+</section>
+
+<footer class="doc">
+  <div class="wrap" style="padding:0;">
+    <p>Készült: 2026. július 9. · Bizalmas üzleti munkaanyag — tanácsadói egyeztetésre. A cégadatok (svéd/finn/észt/UK cégjegyzék, review-platformok, sajtó) forrás-URL-jei a belső munkadokumentumokban tételesen megvannak. Nem jogi és nem befektetési tanácsadás.</p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
