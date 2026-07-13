@@ -77,11 +77,31 @@
   .pill{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--warn-soft);color:var(--warn);border:1px solid var(--warn);}
   footer.doc{border-top:1px solid var(--border);margin-top:52px;padding-top:18px;font-size:.78rem;color:var(--muted);}
   @media print{
-    body{background:#fff;color:#111;font-size:12px;}
+    @page{margin:11mm 12mm;}
+    body{background:#fff;color:#111;font-size:10.6px;line-height:1.45;padding-bottom:0;zoom:.92;}
     nav.toc{display:none;}
-    section{break-inside:avoid-page;margin-bottom:24px;}
-    header.doc{padding:10px 0;}
+    section{margin-bottom:14px;}
+    section h2{break-after:avoid;font-size:1.15rem;}
+    h3{margin:12px 0 5px;}
+    p.sub{margin-bottom:8px;}
+    li{margin:2px 0;}
+    header.doc{padding:6px 0 10px;border-bottom:2px solid #111;background:#fff;margin-bottom:16px;}
+    .doc h1{font-size:1.4rem;}
     a{color:#111;text-decoration:none;}
+    .table-scroll{overflow:visible;border:none;border-radius:0;margin:8px 0;}
+    table{font-size:9px;}
+    th,td{padding:3.5px 7px;}
+    tr{break-inside:avoid;}
+    .two{break-inside:avoid;gap:10px;margin:10px 0;}
+    .card{padding:12px 14px;}
+    .card p,.card li{font-size:.86em;}
+    .callout{break-inside:avoid;box-shadow:none;padding:9px 13px;margin:10px 0;}
+    .card{break-inside:avoid;box-shadow:none;}
+    .callout.acc{background:#f0f5f2;}
+    .callout.warnc{background:#faf5e8;}
+    .callout.bluec{background:#eef4fa;}
+    footer.doc{margin-top:18px;padding-top:10px;}
+    #anyagok a{text-decoration:underline;font-size:.85em;}
   }
 </style>
 </head>
@@ -125,7 +145,7 @@
     <div class="card b">
       <span class="k">B · Globility 2.0</span>
       <h4>Mobility &amp; Workforce Compliance AI</h4>
-      <p>A meglévő Globility-praxis AI-termékvonala, a Globility brand alatt: dokumentum-feldolgozás, határidő-monitoring, compliance-audit — később szoftvertermék (Mobility Drafting Assistant). A meglévő ügyfélkör az azonnali piac.</p>
+      <p>A meglévő Globility-praxis AI-termékvonala, a Globility brand alatt: dokumentum-feldolgozás, határidő-monitoring, compliance-audit — később szoftvertermék (Mobility Drafting Assistant), harmadik pályaként pedig a toolkit licencelése külső mobility-ügynökségeknek ("agency in a box"). A meglévő ügyfélkör az azonnali piac.</p>
     </div>
   </div>
   <div class="callout acc">
@@ -192,7 +212,8 @@
   <h3>A GTM-koncepció (a tényellenőrzésből levezetve)</h3>
   <ul>
     <li><b>Tréning a trójai faló, a retainer a következmény</b> — az egyetlen igazoltan fizető „fractional CAIO"-ügyfél a piacon egy tréningprogramból nőtt ki. Ezért: képzőházi beszállítás (a Training360 ma is árul AI-kurzusokat és trénert keres), kamarai képzési vonalak (BKIK), szakmai testületi előadások kreditponttal (belső ellenőrök, kamarai jogászok, compliance-esek).</li>
-    <li><b>Az árat nullázó csatorna:</b> az AI EDIH (EU-finanszírozott digitális innovációs hub) szolgáltatásai a KKV-nak ingyenesek, akár €300K/cég keretből — ha beszállítók leszünk, az AI Act sprint a vevőnek <b>ingyen</b> lehet. Ez az egy telefonhívás többet érhet, mint bármennyi marketing.</li>
+    <li><b>Intézményi csatorna:</b> kamarák, inkubátorok, GINOP/DIMOP-voucherek — a magyar KKV ne a saját pénzéből vegye az első lépést, hanem támogatott keretből; ez oldja az árérzékenységi gátat, amit a magyar piac fő nehézségeként azonosítottunk.</li>
+      <li><b>Az árat nullázó csatorna:</b> az AI EDIH (EU-finanszírozott digitális innovációs hub) szolgáltatásai a KKV-nak ingyenesek, akár €300K/cég keretből — ha beszállítók leszünk, az AI Act sprint a vevőnek <b>ingyen</b> lehet. Ez az egy telefonhívás többet érhet, mint bármennyi marketing.</li>
     <li><b>Review-gépezet az első naptól</b> (a legjobban működő versenytárs 90 értékelést gyűjtött kohorszonkénti, két-platformos kéréssel — a teljes social proofja ebből él).</li>
     <li><b>Belépési költség-stack:</b> BKIK 15E + IVSZ 50E + JVSZ 199E + AmCham Take-Off 200E Ft ≈ félmillió forintból lefedjük a KKV-tömegbázist, a képzési platformokat és az AI-policy termeket.</li>
   </ul>
@@ -217,7 +238,8 @@
   <ul>
     <li><b>A piac igazolt:</b> a Visalaw.Ai az amerikai immigrációs ügyvédi kamarával (AILA, 16 000 tag) közös termékkel, intézményi befektetői körrel működik; egy másik, 3 fős cég (DraftyAI) ugyanazt az éket $79–250/hó áron monetizálja. Két független cég ugyanazon a piacon = validált kereslet. <b>Az EU/CEE-ben ez a modell lemásolatlan.</b></li>
     <li><b>A recept ismert:</b> (1) a praktizáló megírja a szakma kézikönyvét → (2) egy szakmai szervezet brandjével közösen indít, kezdetben csak a tagoknak → (3) a praxis finanszírozza a fejlesztést a termék-piac illeszkedésig. A mi "AILA-analógunk" az <b>EuRA</b> (350+ európai relocation-cég, budapesti tagokkal, akiket ismerünk; vendor-tagsági kategóriával, éves 800 fős kongresszussal).</li>
-    <li><b>Beépített szabályozási kereslet:</b> az EU AI Act a migrációs AI-t magas kockázatúnak sorolja — mi eleve human-in-the-loop + audit-trail architektúrával építünk, és ezt el is tudjuk adni (a versenytársak utólag szembesülnek vele).</li>
+    <li><b>Harmadik pálya — "agency in a box":</b> a saját üzemben bizonyított toolkit licencelhető külső (nyugat-EU) mobility-ügynökségeknek — pontosan ahogy a Visalaw a saját irodája után a kamara 16 000 tagjának adta el. Az EuRA-tagok így kettős szerepbe kerülnek: ügyfelek ÉS licenc-partnerek.</li>
+      <li><b>Beépített szabályozási kereslet:</b> az EU AI Act a migrációs AI-t magas kockázatúnak sorolja — mi eleve human-in-the-loop + audit-trail architektúrával építünk, és ezt el is tudjuk adni (a versenytársak utólag szembesülnek vele).</li>
     <li><b>Azonnal tesztelhető:</b> a monitoring és az audit a meglévő Globility-ügyfeleknél 30 napon belül validálható — nem kell hozzá új piacot építeni.</li>
   </ul>
 </section>
